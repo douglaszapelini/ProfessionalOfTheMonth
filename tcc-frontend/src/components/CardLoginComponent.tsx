@@ -78,7 +78,7 @@ class CardLogin extends Component<CardLoginProps, CardLoginState> {
                         Login
                     </Button>
                     <Box sx={{display: 'flex', justifyContent: 'right', cursor: 'pointer'}} > 
-                        <Typography variant="button" onClick={this.handleClick}>
+                        <Typography gutterBottom onClick={this.handleClick} sx={{fontSize: '15px', fontWeight: 'bolder'}}>
                             Don't have an enterprise account? Sign Up
                         </Typography>
                     </Box>

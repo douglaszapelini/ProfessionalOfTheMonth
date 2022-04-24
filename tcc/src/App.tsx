@@ -1,7 +1,6 @@
-import Menu from "./components/menu"
+import { AppBar, Toolbar } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import { AppBar, Button, Toolbar } from "@mui/material";
-import Login from "./pages/login";
+import MenuComponent from './components/MenuComponent';
 
 function App() {
 
@@ -23,7 +22,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <div className="App">
-        <Login></Login>
+        <MenuComponent></MenuComponent>
       </div>
     </ThemeProvider>
   )

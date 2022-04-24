@@ -10,7 +10,7 @@ import {Box,
         Typography } from "@mui/material";
 import { Component } from "react";
 import ReactCardFlip from "react-card-flip";
-import { CardsLogin } from "../components/CardLogin";
+import { CardsLogin } from "../components/CardLoginComponent";
 import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 
 interface LoginProps {
@@ -40,7 +40,7 @@ class Login extends Component<LoginProps, LoginState> {
 
     style = {
         paperContainer:{
-            backgroundImage: `url("/images/backgroundLogin4.svg")`,
+            backgroundImage: `url("/images/backgroundLogin.svg")`,
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
             backgroundSize: '100% 100%'

@@ -1,36 +1,91 @@
-import Box from "@mui/material/Box";
 import { Component } from "react";
 
-interface CardsLoginProps {
-    children:any
+import {Box, 
+    Button, 
+    Checkbox, 
+    Container, 
+    FormControlLabel, 
+    styled, 
+    TextField, 
+    Typography } from "@mui/material";
+import CardComponent from "./CardComponent";
+interface CardLoginProps {
+    handleClickFlip: Function
 }
  
-interface CardsLoginState {
+interface CardLoginState {
     
 }
  
-export class CardsLogin extends Component<CardsLoginProps, CardsLoginState> {
-    constructor(props: CardsLoginProps) {
+const CssTextField = styled(TextField)({
+    '& label.Mui-focused': {
+      color: 'white',
+    },
+    '& .MuiOutlinedInput-root': {
+      '&.Mui-focused fieldset': {
+        borderColor: 'white',
+      },
+    },
+  });
+class CardLogin extends Component<CardLoginProps, CardLoginState> {
+    constructor(props: CardLoginProps) {
         super(props);
-        // this.state = { :  };
     }
+    
+    handleClick = () => {
+        this.props.handleClickFlip();
+    }
+
     render() { 
         return (
-            <Box
-                sx={{
-                    width: '35vw',
-                    height: '70vh',
-                    border: '3.5px solid rgba( 255, 255, 255, 0.18 )',
-                    borderRadius: '10px',
-                    background: "rgba( 19, 45, 70, 0.6 )",
-                    backdropFilter: "blur( 2px )",
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItens: 'center'
-                }}
-            >
-                {this.props.children}
-            </Box>
+            <CardComponent>
+                <Container>
+                    <Typography variant="h4" sx={{paddingTop: '35px', marginBottom: '35px', textAlign: 'center'}}>
+                        Login
+                    </Typography>
+                    <CssTextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        id="email"
+                        label="Email Address"
+                        name="email"
+                        autoComplete="email"
+                        autoFocus
+                    />
+                    <CssTextField
+                        margin="normal"
+                        required
+                        fullWidth
+                        name="password"
+                        label="Password"
+                        type="password"
+                        id="password"
+                        autoComplete="current-password"
+                    />
+                    <FormControlLabel
+                        control={
+                            <Checkbox value="remember" color="default"/>
+                        }
+                        label="Remember me"
+                    />
+                    <Button
+                        type="submit"
+                        fullWidth
+                        variant="contained"
+                        sx={{ mt: 3, mb: 2 }}
+                        >
+                        Login
+                    </Button>
+                    <Box sx={{display: 'flex', justifyContent: 'right', cursor: 'pointer'}} > 
+                        <Typography variant="button" onClick={this.handleClick}>
+                            Don't have an enterprise account? Sign Up
+                        </Typography>
+                    </Box>
+                </Container>
+            </CardComponent>
         );
     }
 }
+
+export default CardLogin;

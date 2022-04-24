@@ -1,7 +1,6 @@
 import { Component } from "react";
 import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
-import { AppBar, Avatar, Grid, Menu, Toolbar, Typography } from "@mui/material";
-import MenuItem from '@mui/material/MenuItem';
+import { AppBar, Avatar, Grid, Menu, Toolbar, Typography, MenuItem } from "@mui/material";
 
 interface MenuComponentProps {
     

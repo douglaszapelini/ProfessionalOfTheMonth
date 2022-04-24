@@ -1,4 +1,13 @@
-import { Box, Button, Container, CssBaseline, IconButton, styled, TextField, Typography } from "@mui/material";
+import {Box, 
+        Button, 
+        Checkbox, 
+        Container, 
+        CssBaseline, 
+        FormControlLabel, 
+        IconButton, 
+        styled, 
+        TextField, 
+        Typography } from "@mui/material";
 import { Component } from "react";
 import ReactCardFlip from "react-card-flip";
 import { CardsLogin } from "../components/CardLogin";
@@ -26,7 +35,7 @@ const CssTextField = styled(TextField)({
 class Login extends Component<LoginProps, LoginState> {
     constructor(props: LoginProps) {
         super(props);
-        this.state = { isFlipped: true };
+        this.state = { isFlipped: false };
     }
 
     style = {
@@ -82,7 +91,25 @@ class Login extends Component<LoginProps, LoginState> {
                                     id="password"
                                     autoComplete="current-password"
                                 />
-                                <button onClick={this.handleClickFlip}>Click to flip</button>
+                                <FormControlLabel
+                                    control={
+                                        <Checkbox value="remember" color="default"/>
+                                    }
+                                    label="Remember me"
+                                />
+                                <Button
+                                    type="submit"
+                                    fullWidth
+                                    variant="contained"
+                                    sx={{ mt: 3, mb: 2 }}
+                                    >
+                                    Login
+                                </Button>
+                                <Box sx={{display: 'flex', justifyContent: 'right', cursor: 'pointer'}} > 
+                                    <Typography variant="button" onClick={this.handleClickFlip}>
+                                        Don't have an account? Sign Up
+                                    </Typography>
+                                </Box>
                             </Container>
                         </CardsLogin>
                         <CardsLogin>
@@ -92,12 +119,13 @@ class Login extends Component<LoginProps, LoginState> {
                                     <IconButton onClick={this.handleClickFlip}>
                                         <ArrowBackIcon sx={{ fontSize: '1.8rem' }} />
                                     </IconButton>
-                                    <Typography variant="h4" sx={{ marginLeft:'8%' }}>
-                                        Register Entreprise
-                                    </Typography>
+                                    
                                 </Box> 
+                                <Typography variant="h5" sx={{ marginLeft:'28%' }}>
+                                    Sign Up Entreprise
+                                </Typography>
                                  {/* Form Fields */}
-                                <Box sx={{ marginTop: '10%' }}>
+                                <Box sx={{ marginTop: '3%' }}>
                                     <CssTextField
                                         margin="normal"
                                         required

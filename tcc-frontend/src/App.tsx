@@ -1,4 +1,5 @@
 import { ThemeProvider, createTheme } from '@mui/material/styles';
+import MenuComponent from './components/MenuComponent';
 import Login from './pages/Login';
 
 function App() {
@@ -21,7 +22,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <div className="App">
-        <Login></Login>
+        <MenuComponent></MenuComponent>
       </div>
     </ThemeProvider>
   )

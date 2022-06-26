@@ -1,5 +1,7 @@
+import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import MenuComponent from './components/MenuComponent';
+import Account from './pages/Account';
 import Login from './pages/Login';
 
 function App() {
@@ -21,8 +23,10 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
+      <CssBaseline/>
       <div className="App">
-        <MenuComponent></MenuComponent>
+        {/* <Account index={1} value={"1"}/> */}
+        <Login></Login>
       </div>
     </ThemeProvider>
   )

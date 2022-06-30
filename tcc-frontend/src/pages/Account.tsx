@@ -5,7 +5,7 @@ import TabContext from '@mui/lab/TabContext';
 import TabList from '@mui/lab/TabList';
 import TabPanel from '@mui/lab/TabPanel';
 import { AppBar, Container, Toolbar } from '@mui/material';
-import CardAccountComponent from '../components/CardAccountComponent';
+import UserForm from '../components/UserForm';
 import MenuComponent from '../components/MenuComponent';
 
 interface AccountProps {
@@ -36,7 +36,7 @@ class Account extends Component<AccountProps, AccountState> {
                 <AppBar/>
                 <Toolbar/>
                 <Container fixed sx={{marginTop: '2%'}}>
-                    <CardAccountComponent></CardAccountComponent>
+                    <UserForm isRegistration={true}></UserForm>
                 </Container>
             </Box>
         );

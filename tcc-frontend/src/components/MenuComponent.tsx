@@ -28,7 +28,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
         return (
             <AppBar>
                 <Toolbar >
-                    <Grid container direction="row" md={1.5}>
+                    <Grid container direction="row" xs={1.5}>
                         <Grid item sx={{display:'flex', alignItems: 'center'}}>
                             <EmojiEventsOutlinedIcon  sx={{fontSize:'35px'}}/>
                         </Grid>
@@ -41,7 +41,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             </Typography>
                         </Grid>
                     </Grid>
-                    <Grid container direction="row" md={8.5}>
+                    <Grid container direction="row" xs={8.5}>
                         <Grid item sx={{marginLeft:'0px'}}>
                             <MenuItem onClick={this.handleClose}>Profile</MenuItem>
                         </Grid>
@@ -49,7 +49,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             <MenuItem onClick={this.handleClose}>My account</MenuItem>
                         </Grid>
                     </Grid>
-                    <Grid container direction="row-reverse" md={2}>
+                    <Grid container direction="row-reverse" xs={2}>
                         <Grid item sx={{display:'flex', alignItems: 'center'}}>
                             <Avatar
                                 sx={{ width: '2.2rem', height: '2.2rem', cursor: 'pointer' }}

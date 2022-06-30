@@ -6,9 +6,9 @@ import DashboardIcon from '@mui/icons-material/Dashboard';
 
 export const MenuItems = [
     {
-        title: 'Dashboard',
+        title: 'Home',
         icon: <DashboardIcon/>,
-        path: '/dashboard'
+        path: '/home'
     },
     {
         title: 'User',
@@ -24,10 +24,11 @@ export const MenuItems = [
         title: 'Mural',
         icon: <WallpaperIcon/>,
         path: '/mural'
-    },
-    {
-        title: 'Configuration',
-        icon: <SettingsIcon/>,
-        path: '/configuration'
     }
+    // ,
+    // {
+    //     title: 'Configuration',
+    //     icon: <SettingsIcon/>,
+    //     path: '/configuration'
+    // }
 ]

@@ -1,8 +1,12 @@
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import MenuComponent from './components/MenuComponent';
+import MenuComponent from './components/MenuComponents/MenuComponent';
 import Account from './pages/Account';
 import Login from './pages/Login';
+import Voting from './pages/Voting';
+
+import AdapterDateFns from '@mui/lab/AdapterDateFns'
+import {LocalizationProvider} from '@mui/lab';
 
 function App() {
 
@@ -23,11 +27,14 @@ function App() {
 
   return (
     <ThemeProvider theme={darkTheme}>
-      <CssBaseline/>
-      <div className="App">
-        <Account index={1} value={"1"}/>
-        {/* <Login></Login> */}
-      </div>
+      <LocalizationProvider dateAdapter={AdapterDateFns}>
+        <CssBaseline/>
+        <div className="App">
+          {/* <Account/> */}
+          {/* <Login></Login> */}
+          <Voting></Voting>
+        </div>
+      </LocalizationProvider>
     </ThemeProvider>
   )
 }

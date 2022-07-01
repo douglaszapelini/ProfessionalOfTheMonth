@@ -1,18 +1,10 @@
 import {Component, SyntheticEvent} from 'react';
 import Box from '@mui/material/Box';
-import Tab from '@mui/material/Tab';
-import TabContext from '@mui/lab/TabContext';
-import TabList from '@mui/lab/TabList';
-import TabPanel from '@mui/lab/TabPanel';
 import { AppBar, Container, Toolbar } from '@mui/material';
-import UserForm from '../components/UserForm';
-import MenuComponent from '../components/MenuComponent';
+import UserForm from '../components/UserComponents/UserForm';
+import MenuComponent from '../components/MenuComponents/MenuComponent';
 
 interface AccountProps {
-    children?: React.ReactNode;
-    dir?: string;
-    index: number;
-    value: string;
 }
  
 interface AccountState {
@@ -22,7 +14,6 @@ interface AccountState {
 class Account extends Component<AccountProps, AccountState> {
     constructor(props: AccountProps) {
         super(props);
-        this.state = { value: props.value};
     }
 
     handleChange = (event: SyntheticEvent, newValue: string) => {
@@ -32,11 +23,11 @@ class Account extends Component<AccountProps, AccountState> {
     render() { 
         return (
             <Box sx={{ width: '100%', typography: 'body1' }}>
-                <MenuComponent/>
+                <MenuComponent isAdmin={true}/>
                 <AppBar/>
                 <Toolbar/>
                 <Container fixed sx={{marginTop: '2%'}}>
-                    <UserForm isRegistration={true}></UserForm>
+                    <UserForm isRegistration={false}></UserForm>
                 </Container>
             </Box>
         );

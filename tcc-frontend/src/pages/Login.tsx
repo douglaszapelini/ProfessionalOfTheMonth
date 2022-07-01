@@ -3,9 +3,8 @@ import {Box,
         styled, 
         TextField } from "@mui/material";
 import { Component } from "react";
-import ReactCardFlip from "react-card-flip";
-import CardLogin from "../components/CardLoginComponent";
-import CardRegister from "../components/CardRegisterComponent";
+import CardLogin from "../components/LoginComponents/CardLoginComponent";
+import CardRegister from "../components/LoginComponents/CardRegisterComponent";
 
 interface LoginProps {
     
@@ -59,10 +58,10 @@ class Login extends Component<LoginProps, LoginState> {
                         alignItems: 'center'
                     }}
                     >
-                    <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal">
+                    {/* <ReactCardFlip isFlipped={this.state.isFlipped} flipDirection="horizontal"> */}
                         <CardLogin handleClickFlip={this.handleClickFlip}/>
                         <CardRegister handleClickFlip={this.handleClickFlip}/>
-                    </ReactCardFlip>
+                    {/* </ReactCardFlip> */}
                 </Box>
             </div>
         );

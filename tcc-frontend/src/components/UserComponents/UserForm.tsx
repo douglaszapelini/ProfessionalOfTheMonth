@@ -83,7 +83,6 @@ class UserForm extends Component<UserFormProps, UserFormState> {
                                         endAdornment={
                                             <InputAdornment position="end">
                                             <IconButton
-                                                aria-label="toggle password visibility"
                                                 onClick={this.hundleShowPassword}
                                                 edge="end"
                                             >

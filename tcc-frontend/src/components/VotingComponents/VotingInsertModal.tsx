@@ -9,7 +9,7 @@ interface VotingInsertModalProps {
  
 interface VotingInsertModalState {
     showModalInsert: boolean
-    monthYearInsert: Date | null
+    yearMonthInsert: Date | null
 }
 
 
@@ -28,15 +28,12 @@ const style = {
 class VotingInsertModal extends Component<VotingInsertModalProps, VotingInsertModalState> {
     constructor(props: VotingInsertModalProps) {
         super(props);
-        this.state = { showModalInsert: false, monthYearInsert: new Date };
+        this.state = { showModalInsert: false, yearMonthInsert: new Date };
     }
 
     handleOpen = () => this.setState({showModalInsert: true});
     handleClose = () => this.setState({showModalInsert: false});
-    hundleMonthYearInsert = ( newMonthYearInsert:Date ) =>{
-        this.setState({monthYearInsert: newMonthYearInsert});
-    }
-
+    
     render() { 
         return (
             <Container>
@@ -59,9 +56,9 @@ class VotingInsertModal extends Component<VotingInsertModalProps, VotingInsertMo
                                     label="Year and Month"
                                     minDate={new Date('2000-01-01')}
                                     maxDate={new Date('2099-12-31')}
-                                    value={this.state.monthYearInsert}
+                                    value={this.state.yearMonthInsert}
                                     onChange={(newValue) => {
-                                        this.setState({monthYearInsert: newValue});
+                                        this.setState({yearMonthInsert: newValue});
                                     }}
                                     renderInput={(params) => <TextField {...params} helperText={null} />}
                                 />

@@ -8,6 +8,8 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -28,7 +30,11 @@ public class MuralItem implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name="mura_id")
+	@NotNull(message="The attribute 'Mural' is required!")
 	private Mural mural;
+	
+	@NotNull(message = "The attribute 'title' is required!")
+	@NotBlank(message = "Fill the atributte 'title'!")
 	private String title;
 	private String description;
 }

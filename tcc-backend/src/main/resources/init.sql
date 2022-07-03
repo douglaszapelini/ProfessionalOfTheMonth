@@ -2,7 +2,7 @@ CREATE TABLE enterprise(
 	id bigserial NOT NULL,
 	entp_name TEXT NOT NULL,
 	PRIMARY KEY (id)
-)
+);
 
 CREATE TABLE mural(
 	id bigserial NOT NULL,
@@ -10,7 +10,7 @@ CREATE TABLE mural(
 	entp_id int NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (entp_id) REFERENCES enterprise(id)
-)
+);
 
 CREATE TABLE mural_item(
 	id bigserial NOT NULL,
@@ -19,7 +19,7 @@ CREATE TABLE mural_item(
 	mura_id int NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (mura_id) REFERENCES mural(id)
-)
+);
 
 CREATE TABLE user_system(
 	id bigserial NOT NULL,
@@ -35,7 +35,7 @@ CREATE TABLE user_system(
 	ic_first_access BOOLEAN NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (entp_id) REFERENCES enterprise(id)
-)
+);
 
 CREATE TABLE result(
 	id bigserial NOT NULL,
@@ -43,20 +43,20 @@ CREATE TABLE result(
 	ic_year BOOLEAN NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (user_id) REFERENCES user_system(id)
-)
+);
 
 CREATE TABLE voting(
 	id bigserial NOT NULL,
 	entp_id INT NOT NULL,
-	month_year INT NOT NULL,
-	resu_id INT NOT NULL,
-	date_oppened TIMESTAMP NOT NULL,
+	year_month INT NOT NULL,
+	resu_id INT,
+	date_oppened TIMESTAMP NOT NULL DEFAULT now(),
 	date_planned_closure TIMESTAMP NOT NULL,
 	date_closure TIMESTAMP NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (entp_id) REFERENCES enterprise(id),
 	FOREIGN KEY (resu_id) REFERENCES result(id)
-)
+);
 
 CREATE TABLE vote(
 	id bigserial NOT NULL,
@@ -65,7 +65,7 @@ CREATE TABLE vote(
 	PRIMARY KEY (id),
 	FOREIGN KEY (user_selected) REFERENCES user_system(id),
 	FOREIGN KEY (voti_id) REFERENCES voting(id)
-)
+);
 
 CREATE TABLE participant(
 	id bigserial NOT NULL,
@@ -75,4 +75,4 @@ CREATE TABLE participant(
 	PRIMARY KEY (id),
 	FOREIGN KEY (user_id) REFERENCES user_system(id),
 	FOREIGN KEY (voti_id) REFERENCES voting(id)
-)
+);

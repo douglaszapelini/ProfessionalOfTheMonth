@@ -10,6 +10,9 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotNull;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -29,15 +32,20 @@ public class Voting implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name="month_year")
-	private Integer monthYear;
+	@Column(name="year_month")
+	@Min(value=200001, message= "The attribute 'yearMonth' is invalid!")
+	@Max(value=210012, message= "The attribute 'yearMonth' is invalid!")
+	@NotNull(message = "The attribute 'yearMonth' is required!")
+	private Integer yearMonth;
 	
 	@OneToOne
 	@JoinColumn(name="resu_id")
+	@NotNull(message = "The attribute 'result' is required!")
 	private Result result;
 	
 	@OneToOne
 	@JoinColumn(name="entp_id")
+	@NotNull(message = "The attribute 'enterprise' is required!")
 	private Enterprise enterprise;
 	
 	@Column(name="date_oppened")

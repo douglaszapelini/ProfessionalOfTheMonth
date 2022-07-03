@@ -1,9 +1,8 @@
-package com.tcc.professionalOfTheMonth.domains;
+package com.tcc.professionalOfTheMonth.dto;
 
 import java.io.Serializable;
 
 import javax.persistence.Column;
-import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -15,19 +14,18 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.tcc.professionalOfTheMonth.domains.Enterprise;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-@Entity
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name="user_system")
-public class User implements Serializable{
+public class UserUpdateDTO implements Serializable{
 
 	private static final long serialVersionUID = 1L;
 	
@@ -35,14 +33,9 @@ public class User implements Serializable{
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	
-	@Column(name = "user_name")
 	@NotNull(message = "The attribute 'name' is required!")
 	@NotBlank(message = "Fill the atributte 'name'!")
 	private String name;
-	
-	@Column(name = "user_password")
-	@JsonIgnore
-	private String password;
 	
 	@NotNull(message = "The attribute 'email' is required!")
 	@NotBlank(message = "Fill the atributte 'email'!")
@@ -56,23 +49,18 @@ public class User implements Serializable{
 	@NotNull(message = "The attribute 'enterprise' is required!")
 	private Enterprise enterprise;
 	
-	@Column(name = "ic_admin")
 	@NotNull(message = "The attribute 'icAdmin' is required!")
 	private Boolean icAdmin;
 	
-	@Column(name = "ic_use")
 	@NotNull(message = "The attribute 'icUse' is required!")
 	private Boolean icUse;
 	
-	@Column(name = "ic_eligible")
 	@NotNull(message = "The attribute 'icEligible' is required!")
 	private Boolean icEligible;
 	
-	@Column(name = "ic_election")
 	@NotNull(message = "The attribute 'icElection' is required!")
 	private Boolean icElection;
 	
-	@Column(name = "ic_first_access")
 	@NotNull(message = "The attribute 'icFirstAccess' is required!")
 	private Boolean icFirstAccess;
 }

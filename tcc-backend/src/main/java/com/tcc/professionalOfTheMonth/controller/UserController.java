@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import javax.mail.MessagingException;
 import javax.validation.Valid;
 
 import org.springframework.http.HttpStatus;
@@ -66,7 +67,12 @@ public class UserController extends GenericController<User, Long, UserService>{
 	@PutMapping(path = "{id}")
     public ResponseEntity<?> update(@RequestBody @Valid User newObj , @PathVariable Long id) {
 		
-		sendEmailService.sendEmail("zapelini.douglas@gmail.com", "Teste", "CONTEUDO");
+		try {
+			sendEmailService.sendHtmlEmail("zapelini.douglas@gmail.com", "Teste", "<h1> TESTE HTML </h1> <p>teste</p>");
+		} catch (MessagingException e) {
+			e.printStackTrace();
+		}
+		
 		Optional<User> opt = userService.findById(id);
     	
     	if(opt.isPresent()

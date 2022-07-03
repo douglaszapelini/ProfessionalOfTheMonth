@@ -41,7 +41,6 @@ public class User implements Serializable{
 	private String name;
 	
 	@Column(name = "user_password")
-	@JsonIgnore
 	private String password;
 	
 	@NotNull(message = "The attribute 'email' is required!")

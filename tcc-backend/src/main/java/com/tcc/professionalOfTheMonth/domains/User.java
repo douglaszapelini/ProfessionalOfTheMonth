@@ -2,14 +2,15 @@ package com.tcc.professionalOfTheMonth.domains;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
-import com.tcc.professionalOfTheMonth.enums.EmployeeType;
-import com.tcc.professionalOfTheMonth.enums.Indicator;
-
+import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 public class User implements Serializable{
 
 	private static final long serialVersionUID = 1L;
@@ -25,26 +27,32 @@ public class User implements Serializable{
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
-	private String name;
-	private String password;
-	private String office;
-	private Integer employeeType;
-	private Integer icUse;
-	private Integer icEligible;
-	private Integer icElection;
-	private Integer icFirstAccess;
 	
-	public User(Long id, String name, String password, String office, EmployeeType employeeType,
-			Indicator icUse, Indicator icEligible, Indicator icElection, Indicator icFirstAccess) {
-		super();
-		this.id = id;
-		this.name = name;
-		this.password = password;
-		this.office = office;
-		this.employeeType = employeeType.getCode();
-		this.icUse = icUse.getCode();
-		this.icEligible = icEligible.getCode();
-		this.icElection = icElection.getCode();
-		this.icFirstAccess = icFirstAccess.getCode();
-	}
+	@Column(name = "user_name")
+	private String name;
+	
+	@Column(name = "user_password")
+	private String password;
+	
+	private String email;
+	private String office;
+	
+	@ManyToOne
+	@JoinColumn(name = "entp_id")
+	private Enterprise enterprise;
+	
+	@Column(name = "ic_admin")
+	private boolean icAdmin;
+	
+	@Column(name = "ic_use")
+	private boolean icUse;
+	
+	@Column(name = "ic_eligible")
+	private boolean icEligible;
+	
+	@Column(name = "ic_election")
+	private boolean icElection;
+	
+	@Column(name = "ic_first_access")
+	private boolean icFirstAccess;
 }

@@ -36,7 +36,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
         return (
             <AppBar>
                 <Toolbar >
-                    <Grid container direction="row" xs={1.5}>
+                    <Grid container direction="row" sx={{maxWidth: '10rem'}}>
                         <Grid item sx={{display:'flex', alignItems: 'center'}}>
                             <EmojiEventsOutlinedIcon  sx={{fontSize:'35px'}}/>
                         </Grid>
@@ -49,7 +49,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             </Typography>
                         </Grid>
                     </Grid>
-                    <Grid container direction="row" xs={8.5}>
+                    <Grid container direction="row" textAlign="center">
                         {this.props.isAdmin && 
                             <MenuItem>
                                 <DashboardIcon sx={{paddingRight: '0.2rem'}}/>
@@ -102,7 +102,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             </MenuItem>
                         }
                     </Grid>
-                    <Grid container direction="row-reverse" xs={2}>
+                    <Grid container direction="row-reverse">
                         <Grid item sx={{display:'flex', alignItems: 'center'}}>
                             <Avatar
                                 sx={{ width: '2.2rem', height: '2.2rem', cursor: 'pointer' }}

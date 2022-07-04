@@ -27,6 +27,7 @@ import com.tcc.professionalOfTheMonth.domains.User;
 import com.tcc.professionalOfTheMonth.service.EnterpriseService;
 import com.tcc.professionalOfTheMonth.service.SendEmailService;
 import com.tcc.professionalOfTheMonth.service.UserService;
+import com.tcc.professionalOfTheMonth.util.Util;
 
 @RestController
 @RequestMapping(value="/user")
@@ -55,7 +56,20 @@ public class UserController extends GenericController<User, Long, UserService>{
 		Optional<Enterprise> opt = enterpriseService.findById(user.getEnterprise().getId());
 		
 		if(opt.isPresent()) {
+			
+			String passwordDescripted = user.getPassword();
+			
 			user.setPassword(encoder.encode(user.getPassword()));
+			userService.save(user);
+			
+			try {
+				sendEmailService.sendHtmlEmail(user.getEmail(), 
+											   "Profissional Of The Month - New User ", 
+											   Util.assembleHtmlEmail(user.getName(), user.getEmail(), passwordDescripted));
+			} catch (MessagingException e) {
+				e.printStackTrace();
+			}
+			
 	        return ResponseEntity.status(HttpStatus.OK).body(user);
 		}else {
 			return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Enterprise not found");
@@ -66,13 +80,7 @@ public class UserController extends GenericController<User, Long, UserService>{
 	
 	@PutMapping(path = "{id}")
     public ResponseEntity<?> update(@RequestBody @Valid User newObj , @PathVariable Long id) {
-		
-		try {
-			sendEmailService.sendHtmlEmail("zapelini.douglas@gmail.com", "Teste", "<h1> TESTE HTML </h1> <p>teste</p>");
-		} catch (MessagingException e) {
-			e.printStackTrace();
-		}
-		
+				
 		Optional<User> opt = userService.findById(id);
     	
     	if(opt.isPresent()

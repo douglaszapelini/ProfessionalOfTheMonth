@@ -45,7 +45,7 @@ public class SendEmailService {
 		MimeMessageHelper helper = new MimeMessageHelper(message, true);
 		helper.setFrom(mail);
 		helper.setSubject(title);
-		helper.setText(content);
+		helper.setText(content,true);
 		helper.setTo(to);
 		
 		javaMailSender.send(message);

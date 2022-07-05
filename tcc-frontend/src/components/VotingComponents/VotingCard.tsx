@@ -1,5 +1,4 @@
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Button, Card, CardContent, CardHeader, FormControl, FormControlLabel, Grid, IconButton, Input, InputAdornment, InputLabel, OutlinedInput, styled, Switch, TextField } from "@mui/material";
+import { Card, CardContent, CardHeader, FormControl, Grid, styled, TextField } from "@mui/material";
 import { Component } from "react";
 import DataTableVoting from "./DataTableVoting";
 import VotingInsertModal from "./VotingInsertModal";

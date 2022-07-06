@@ -1,4 +1,4 @@
-import { Button, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { MuralItemModel } from "../../Model/MuralItemModel";
 import { DragDropContext, Draggable, Droppable, DropResult } from "react-beautiful-dnd"

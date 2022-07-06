@@ -1,7 +1,5 @@
-import { Box, Button, Container, FormControlLabel, Grid, Modal, styled, Switch, TextField, Toolbar } from "@mui/material";
+import { Box, Button, Container, FormControlLabel, Grid, Modal, styled, Switch, TextField } from "@mui/material";
 import { Component } from "react";
-
-import {DatePicker} from '@mui/lab';
 
 interface UserInsertModalProps {
     

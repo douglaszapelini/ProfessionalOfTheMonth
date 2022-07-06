@@ -23,10 +23,10 @@ class Mural extends Component<MuralProps, MuralState> {
                 <MenuComponent isAdmin={true}/>
                 <AppBar/>
                 <Toolbar/>
-                <Container sx={{marginTop: '2%'}}>
+                <Container sx={{marginTop: '2%', paddingBottom: '3rem'}}>
                     <MuralContainer></MuralContainer>
                 </Container>
-                {/* <FooterComponent/> */}
+                <FooterComponent/>
             </Box>
         );
     }

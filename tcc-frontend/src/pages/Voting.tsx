@@ -1,5 +1,6 @@
 import { AppBar, Box, Container, Toolbar } from "@mui/material";
 import { Component } from "react";
+import FooterComponent from "../components/FooterComponents/FooterComponent";
 import MenuComponent from "../components/MenuComponents/MenuComponent";
 import VotingCard from "../components/VotingComponents/VotingCard";
 
@@ -22,9 +23,10 @@ class Voting extends Component<VotingProps, VotingState> {
                 <MenuComponent isAdmin={true}/>
                 <AppBar/>
                 <Toolbar/>
-                <Container fixed sx={{marginTop: '2%'}}>
+                <Container sx={{marginTop: '2%'}}>
                     <VotingCard></VotingCard>
                 </Container>
+                <FooterComponent/>
             </Box>
         );
     }

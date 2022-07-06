@@ -3,7 +3,6 @@ import { Button, Card, CardContent, CardHeader, FormControl, FormControlLabel, G
 import { Component } from "react";
 
 interface UserFormProps {
-    isRegistration: boolean;
 }
  
 interface UserFormState {
@@ -47,7 +46,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
     render() { 
         return (
             <Card sx={{maxWidth: '1120px', textAlign: 'center'}}>
-                <CardHeader title={this.props.isRegistration ? "User Registration" : "User Profile"} sx={{backgroundColor: '#4D4B4D'}}/>
+                <CardHeader title={"User Profile"} sx={{backgroundColor: '#4D4B4D'}}/>
                 <CardContent>
                     <Grid container direction="row" alignItems="center" justifyContent="center">
                         <Grid item xs={8} sx={{paddingBottom: '0.8rem'}}>
@@ -58,49 +57,36 @@ class UserForm extends Component<UserFormProps, UserFormState> {
                                 variant="outlined"
                             />
                         </Grid>
-                        {/* CASO SEJA CADASTRO, NÃO MOSTRA O CAMPO DE SENHA */}
-                        {this.props.isRegistration && 
-                            <Grid item xs={8} sx={{paddingBottom: '0.8rem'}}>
-                                <CssTextField
-                                    fullWidth
-                                    id="office-input"
-                                    label="Office"
-                                    variant="outlined"
-                                />
-                            </Grid>
-                        }
                         {/* CASO NÃO SEJA CADASTRO, MOSTRAR O CAMPO DE SENHA PARA ALTERAR
                                                 AJUSTAR DEPOIS
                         */}
-                        {!this.props.isRegistration &&
-                            <Grid item xs={8} sx={{paddingBottom: '0.8rem'}}>
-                                <CssFormControl sx={{ width: '40%', marginRight:'2%' }} variant="outlined">
-                                    <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                                    <OutlinedInput
-                                        id="password-input"
-                                        type={this.state.showPassword ? 'text' : 'password'}
-                                        autoComplete="current-password"
-                                        endAdornment={
-                                            <InputAdornment position="end">
-                                            <IconButton
-                                                onClick={this.hundleShowPassword}
-                                                edge="end"
-                                            >
-                                                {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                                            </IconButton>
-                                            </InputAdornment>
-                                        }
-                                        label="Password"
-                                    />
-                                </CssFormControl>
-                                <CssTextField
-                                    sx={{ width: '58%'}}
-                                    id="office-input"
-                                    label="Office"
-                                    variant="outlined"
+                        <Grid item xs={8} sx={{paddingBottom: '0.8rem'}}>
+                            <CssFormControl sx={{ width: '40%', marginRight:'2%' }} variant="outlined">
+                                <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
+                                <OutlinedInput
+                                    id="password-input"
+                                    type={this.state.showPassword ? 'text' : 'password'}
+                                    autoComplete="current-password"
+                                    endAdornment={
+                                        <InputAdornment position="end">
+                                        <IconButton
+                                            onClick={this.hundleShowPassword}
+                                            edge="end"
+                                        >
+                                            {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
+                                        </IconButton>
+                                        </InputAdornment>
+                                    }
+                                    label="Password"
                                 />
-                            </Grid>
-                        }
+                            </CssFormControl>
+                            <CssTextField
+                                sx={{ width: '58%'}}
+                                id="office-input"
+                                label="Office"
+                                variant="outlined"
+                            />
+                        </Grid>
                         <Grid item xs={10}>
                             <FormControlLabel
                                 value="isEligible"

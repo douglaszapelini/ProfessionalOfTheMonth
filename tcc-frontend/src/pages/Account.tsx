@@ -3,6 +3,7 @@ import Box from '@mui/material/Box';
 import { AppBar, Container, Toolbar } from '@mui/material';
 import UserForm from '../components/UserComponents/UserForm';
 import MenuComponent from '../components/MenuComponents/MenuComponent';
+import FooterComponent from '../components/FooterComponents/FooterComponent';
 
 interface AccountProps {
 }
@@ -27,8 +28,9 @@ class Account extends Component<AccountProps, AccountState> {
                 <AppBar/>
                 <Toolbar/>
                 <Container fixed sx={{marginTop: '2%'}}>
-                    <UserForm isRegistration={false}></UserForm>
+                    <UserForm></UserForm>
                 </Container>
+                <FooterComponent/>
             </Box>
         );
     }

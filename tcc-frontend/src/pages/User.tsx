@@ -2,18 +2,18 @@ import { AppBar, Box, Container, Toolbar } from "@mui/material";
 import { Component } from "react";
 import FooterComponent from "../components/FooterComponents/FooterComponent";
 import MenuComponent from "../components/MenuComponents/MenuComponent";
-import MuralContainer from "../components/Mural/MuralContainer";
+import UserCard from "../components/UserComponents/UserCard";
 
-interface MuralProps {
+interface VotingProps {
     
 }
  
-interface MuralState {
+interface VotingState {
     
 }
  
-class Mural extends Component<MuralProps, MuralState> {
-    constructor(props: MuralProps) {
+class Voting extends Component<VotingProps, VotingState> {
+    constructor(props: VotingProps) {
         super(props);
         // this.state = { :  };
     }
@@ -23,13 +23,13 @@ class Mural extends Component<MuralProps, MuralState> {
                 <MenuComponent isAdmin={true}/>
                 <AppBar/>
                 <Toolbar/>
-                <Container sx={{marginTop: '2%'}}>
-                    <MuralContainer></MuralContainer>
+                <Container fixed sx={{marginTop: '2%'}}>
+                    <UserCard></UserCard>
                 </Container>
-                {/* <FooterComponent/> */}
+                <FooterComponent/>
             </Box>
         );
     }
 }
  
-export default Mural;
+export default Voting;

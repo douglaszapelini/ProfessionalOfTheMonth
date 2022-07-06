@@ -9,6 +9,7 @@ import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import {LocalizationProvider} from '@mui/lab';
 import Mural from './pages/Mural';
 import Sigup from './pages/Sigup';
+import User from './pages/User';
 
 function App() {
 
@@ -32,11 +33,12 @@ function App() {
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <CssBaseline/>
         <div className="App">
-          {/* <Account/> */}
-          <Login></Login>
+          <Account/>
+          {/* <Login></Login> */}
           {/* <Sigup></Sigup> */}
           {/* <Voting></Voting> */}
           {/* <Mural></Mural> */}
+          {/* <User></User> */}
         </div>
       </LocalizationProvider>
     </ThemeProvider>

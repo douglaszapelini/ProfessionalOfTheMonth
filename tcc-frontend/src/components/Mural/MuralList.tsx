@@ -2,7 +2,7 @@ import { Card, CardContent, Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { MuralModel } from "../../Model/MuralModel";
 import MuralItemCard from "../MuralItem/MuralItemCard";
-import MuralItemInsertModal from "../MuralItem/MuralItemInsertModal";
+import MuralItemModal from "../MuralItem/MuralItemModal";
 
 interface MuralListProps {
     listMural: Array<MuralModel>
@@ -34,7 +34,7 @@ class MuralList extends Component<MuralListProps, MuralListState> {
                                             </Typography>
                                         </Grid>
                                         <Grid item xs={3}>
-                                            <MuralItemInsertModal/>
+                                            <MuralItemModal isInsertModal={true}/>
                                         </Grid>
                                     </Grid>
                                     {/* CARD ITEMS */}

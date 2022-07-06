@@ -1,7 +1,8 @@
-import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
+import { Button, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { MuralItemModel } from "../../Model/MuralItemModel";
 import { DragDropContext, Draggable, Droppable, DropResult } from "react-beautiful-dnd"
+import MuralItemModal from "./MuralItemModal";
 
 interface MuralItemCardProps {
     listMuralItem: Array<MuralItemModel>
@@ -39,9 +40,9 @@ class MuralItemCard extends Component<MuralItemCardProps, MuralItemCardState> {
           <Droppable droppableId="items">
             {(droppableProvided) => (
               <div className="items" {...droppableProvided.droppableProps} ref={droppableProvided.innerRef}>
-                {listItems.map(({ id, title, srcImage, description, sequence }, index) => {
+                {listItems.map((muralItem, index) => {
                   return (
-                    <Draggable key={id} draggableId={sequence.toString()} index={index}>
+                    <Draggable key={muralItem.id} draggableId={muralItem.id.toString()} index={index}>
                       {(provided) => (
                         <Grid container justifyContent='center'>
                           <Card 
@@ -52,23 +53,28 @@ class MuralItemCard extends Component<MuralItemCardProps, MuralItemCardState> {
                               marginTop: '1rem',
                               backgroundColor: '#808080', 
                               border: '1px solid white'}}>
-                              {!!srcImage &&
-                                <CardMedia
-                                  component="img"
-                                  image={srcImage}
-                                />
-                              }
                               <CardContent>
                                 {/* CARD TITLE*/}
-                                <Grid sx={{backgroundColor: '#373737', borderRadius:'4px'}}>
+                                <Grid sx={{backgroundColor: '#373737', borderRadius:'4px 4px 0 0'}}>
                                   <Typography variant="h6">
-                                    {title}
+                                    {muralItem.title}
                                   </Typography>
                                 </Grid>
+                                {!!muralItem.srcImage &&
+                                  <CardMedia
+                                    component="img"
+                                    image={muralItem.srcImage}
+                                  />
+                                }
                                 {/* CARD DESCRIPTION*/}
-                                <Typography variant="body2" color="text.secondary">
-                                  {description}
-                                </Typography>
+                                <Grid sx={{backgroundColor: '#373737', padding: '0.8rem'}}>
+                                  <Typography variant="body2" color="text.secondary">
+                                    {muralItem.description}
+                                  </Typography>
+                                </Grid>
+                                <Grid textAlign="center" sx={{backgroundColor: '#373737'}}>
+                                  <MuralItemModal isInsertModal={false} muralItem={muralItem}/>
+                                </Grid>
                               </CardContent>
                           </Card>
                         </Grid>

@@ -2,13 +2,15 @@ import { Box, Button, Grid, ImageListItem, Modal, styled, TextField, Tooltip } f
 import { Component } from "react";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-
-interface MuralItemInsertModalProps {
-    
+import { MuralItemModel } from "../../Model/MuralItemModel";
+import EditIcon from '@mui/icons-material/Edit';
+interface MuralItemModalProps {
+    muralItem?: MuralItemModel,
+    isInsertModal: boolean
 }
  
-interface MuralItemInsertModalState {
-    showModalInsert: boolean,
+interface MuralItemModalState {
+    showModal: boolean,
     srcMuralItemImage: string | ArrayBuffer | null
 }
 
@@ -37,14 +39,18 @@ const CssTextField = styled(TextField)({
   }
 );
  
-class MuralItemInsertModal extends Component<MuralItemInsertModalProps, MuralItemInsertModalState> {
-    constructor(props: MuralItemInsertModalProps) {
+class MuralItemModal extends Component<MuralItemModalProps, MuralItemModalState> {
+    constructor(props: MuralItemModalProps) {
         super(props);
-        this.state = { showModalInsert: false, srcMuralItemImage: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'};
+        this.state = { showModal: false, srcMuralItemImage: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'};
+
+        if(!!props.muralItem && !!props.muralItem.srcImage){
+            this.state = { showModal: false, srcMuralItemImage: props.muralItem.srcImage};
+        }
     }
 
-    handleOpen = () => this.setState({showModalInsert: true});
-    handleClose = () => this.setState({showModalInsert: false});
+    handleOpen = () => this.setState({showModal: true});
+    handleClose = () => this.setState({showModal: false});
 
     imageHandler = (e : any) => {
         const reader = new FileReader();
@@ -57,27 +63,43 @@ class MuralItemInsertModal extends Component<MuralItemInsertModalProps, MuralIte
     };
     
     render() { 
+
+        const {isInsertModal, muralItem} = this.props;
+
         return (
             <>
                 {/* Button Insert */}
-                <Tooltip title="Add New Card">
-                    <Button onClick={this.handleOpen} size="small">
-                        <AddBoxIcon color="success"/>
-                    </Button>
-                </Tooltip>
+                {isInsertModal &&
+                    <Tooltip title="Add New Card">
+                        <Button onClick={this.handleOpen} size="small">
+                            <AddBoxIcon color="success"/>
+                        </Button>
+                    </Tooltip>
+                }
+
+                {/* Button Insert */}
+                {!isInsertModal &&
+                    <Tooltip title="Edit Card">
+                        <Button variant="contained" onClick={this.handleOpen} size="small" sx={{padding: '0.5rem', width: '100%'}}>
+                            <EditIcon color="warning"/>
+                        </Button>
+                    </Tooltip>
+                }
 
                 {/* Modal */}
                 <Modal
-                    open={this.state.showModalInsert}
+                    open={this.state.showModal}
                     onClose={this.handleClose}
                 >
                     <Box sx={{ ...style, width: 400, borderRadius: '4px' }}>
                         <Grid container>
                             <Grid item xs={12} textAlign="center" sx={{margin: '0', backgroundColor: '#4D4B4D', borderRadius: '4px'}}>
-                                <h1>NEW Card</h1>
+                                {isInsertModal && <h1>NEW Card</h1>}
+                                {!isInsertModal && <h1>EDIT Card</h1>}
                             </Grid>
                             <Grid item sx={{padding:'0.5rem 0'}}>
-                                <p>Fill in the field to insert a new CARD...</p>
+                                {isInsertModal && <p>Fill in the field to insert a new CARD...</p>}
+                                {!isInsertModal && <p>Fill in the field to edit a new CARD...</p>}
                             </Grid>
                             <Grid item xs={12} >
 
@@ -88,6 +110,8 @@ class MuralItemInsertModal extends Component<MuralItemInsertModalProps, MuralIte
                                     label="Title Card"
                                     variant="outlined"
                                     required
+                                    defaultValue={!isInsertModal && !!muralItem ? muralItem.title : ""}
+                                    contentEditable
                                     sx={{paddingBottom: '1rem'}}
                                     inputProps={{ maxLength: 25 }}
                                 />
@@ -122,6 +146,7 @@ class MuralItemInsertModal extends Component<MuralItemInsertModalProps, MuralIte
                                     label="Description Card"
                                     variant="outlined"
                                     multiline
+                                    defaultValue={!isInsertModal && !!muralItem ? muralItem.description : ""}
                                     required
                                     maxRows={4}
                                     sx={{marginTop: '1rem'}}
@@ -135,7 +160,8 @@ class MuralItemInsertModal extends Component<MuralItemInsertModalProps, MuralIte
                                 </Grid>
                                 <Grid item>
                                     <Button onClick={this.handleClose} color="success" variant="contained">
-                                        Insert
+                                        {isInsertModal && 'Insert'}
+                                        {!isInsertModal && 'Save'}
                                     </Button>
                                 </Grid>
                             </Grid>
@@ -147,4 +173,4 @@ class MuralItemInsertModal extends Component<MuralItemInsertModalProps, MuralIte
     }
 }
  
-export default MuralItemInsertModal;
+export default MuralItemModal;

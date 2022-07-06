@@ -8,6 +8,7 @@ import Voting from './pages/Voting';
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import {LocalizationProvider} from '@mui/lab';
 import Mural from './pages/Mural';
+import Sigup from './pages/Sigup';
 
 function App() {
 
@@ -32,9 +33,10 @@ function App() {
         <CssBaseline/>
         <div className="App">
           {/* <Account/> */}
-          {/* <Login></Login> */}
+          <Login></Login>
+          {/* <Sigup></Sigup> */}
           {/* <Voting></Voting> */}
-          <Mural></Mural>
+          {/* <Mural></Mural> */}
         </div>
       </LocalizationProvider>
     </ThemeProvider>

@@ -5,11 +5,12 @@ import { Component } from "react";
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import FooterComponent from "../components/FooterComponents/FooterComponent";
-interface LoginProps {
+
+interface SigupProps {
     
 }
  
-interface LoginState {
+interface SigupState {
     showPassword: boolean;
 }
 
@@ -36,8 +37,8 @@ const CssFormControl= styled(FormControl)({
   }
 );
  
-class Login extends Component<LoginProps, LoginState> {
-    constructor(props: LoginProps) {
+class Sigup extends Component<SigupProps, SigupState> {
+    constructor(props: SigupProps) {
         super(props);
         this.state = { showPassword: false };
     }
@@ -63,10 +64,17 @@ class Login extends Component<LoginProps, LoginState> {
                                 <Grid item xs={12} sx={{ backgroundColor: '#4D4B4D', borderRadius: '0 0 4px 4px', border: '2px solid black'}}>
                                     <Grid item textAlign="center" xs={12} sx={{margin: '1.5rem'}}>
                                         <Typography variant="h3">
-                                            Login
+                                            Sig Up
                                         </Typography>
                                     </Grid>
                                     <Grid item textAlign="center" xs={12} sx={{marginTop: '1.5rem', marginLeft: '1.5rem', marginRight: '1.5rem'}}>
+                                        <CssTextField
+                                            fullWidth
+                                            required
+                                            label="Enterprise Name"
+                                        />
+                                    </Grid>
+                                    <Grid item textAlign="center" xs={12} sx={{marginTop: '1rem', marginLeft: '1.5rem', marginRight: '1.5rem'}}>
                                         <CssTextField
                                             fullWidth
                                             required
@@ -95,7 +103,7 @@ class Login extends Component<LoginProps, LoginState> {
                                         </CssFormControl>
                                     </Grid>
                                     <Grid item textAlign="center" xs={12} sx={{marginTop: '1rem', marginLeft: '1.5rem', marginRight: '1.5rem', marginBottom: '1.5rem'}}>
-                                        <Button color="success" variant="contained" fullWidth  sx={{ height: '3rem'}}>Login</Button>
+                                        <Button color="success" variant="contained" fullWidth  sx={{ height: '3rem'}}>Sig Up</Button>
                                     </Grid>
                                     <Grid item textAlign="center" xs={12} sx={{marginTop: '1rem', marginLeft: '1.5rem', marginRight: '1.5rem', marginBottom: '1.5rem'}}>
                                         <Button variant="outlined" fullWidth color="inherit" sx={{ height: '3rem'}}>Sig up</Button>
@@ -112,4 +120,4 @@ class Login extends Component<LoginProps, LoginState> {
     }
 }
  
-export default Login;
+export default Sigup;

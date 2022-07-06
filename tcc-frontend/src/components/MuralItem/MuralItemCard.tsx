@@ -52,7 +52,7 @@ class MuralItemCard extends Component<MuralItemCardProps, MuralItemCardState> {
                               sx={{ width:'90%', 
                               marginTop: '1rem',
                               backgroundColor: '#808080', 
-                              border: '1px solid white'}}>
+                              border: '1px solid black'}}>
                               <CardContent>
                                 {/* CARD TITLE*/}
                                 <Grid sx={{backgroundColor: '#373737', borderRadius:'4px 4px 0 0'}}>
@@ -67,11 +67,12 @@ class MuralItemCard extends Component<MuralItemCardProps, MuralItemCardState> {
                                   />
                                 }
                                 {/* CARD DESCRIPTION*/}
-                                <Grid sx={{backgroundColor: '#373737', padding: '0.8rem'}}>
+                                <Grid sx={{backgroundColor: '#696969', padding: '0.8rem'}}>
                                   <Typography variant="body2" color="text.secondary">
                                     {muralItem.description}
                                   </Typography>
                                 </Grid>
+                                {/* EDIT BUTTON */}
                                 <Grid textAlign="center" sx={{backgroundColor: '#373737'}}>
                                   <MuralItemModal isInsertModal={false} muralItem={muralItem}/>
                                 </Grid>

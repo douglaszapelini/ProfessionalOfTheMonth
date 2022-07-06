@@ -45,8 +45,8 @@ class UserInsertModal extends Component<UserInsertModalProps, UserInsertModalSta
     
     render() { 
         return (
-            <Container>
-                <Button onClick={this.handleOpen} color="success" variant="contained">Insert New User</Button>
+            <>
+                <Button onClick={this.handleOpen} color="success" sx={{borderRadius:'0 0 4px 4px'}} fullWidth variant="contained">Insert New User</Button>
                 <Modal
                     open={this.state.showModalInsert}
                     onClose={this.handleClose}
@@ -121,7 +121,7 @@ class UserInsertModal extends Component<UserInsertModalProps, UserInsertModalSta
                         </Grid>
                     </Box>
                 </Modal>
-            </Container>
+            </>
         );
     }
 }

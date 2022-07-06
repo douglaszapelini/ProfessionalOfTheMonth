@@ -1,8 +1,9 @@
-import { Card, CardContent, Grid, Typography } from "@mui/material";
+import { Card, CardContent, Grid, Tooltip, Typography } from "@mui/material";
 import { Component } from "react";
 import { MuralModel } from "../../Model/MuralModel";
 import MuralItemCard from "../MuralItem/MuralItemCard";
 import MuralItemModal from "../MuralItem/MuralItemModal";
+import MuralModal from "./MuralModal";
 
 interface MuralListProps {
     listMural: Array<MuralModel>
@@ -24,16 +25,23 @@ class MuralList extends Component<MuralListProps, MuralListState> {
                 {this.props.listMural.map( mural => {
                     return(
                         <Grid item xs={3} key={mural.id}>
-                            <Card>
-                                <CardContent sx={{margin:"0.5rem    ", padding:"0"}}>
+                            {/* Inativo #2E2E2E, Ativo '#A9A9A9' */}
+                            <Card sx={{backgroundColor: '#A9A9A9', margin:'0 0.5rem'}}>
+                                <CardContent sx={{margin:"0.5rem", padding:"0"}}>
                                     {/* CARD HEADER*/}
-                                    <Grid container sx={{margin:"0", padding:"0", backgroundColor: '#4D4B4D'}}>
-                                        <Grid item xs={9} sx={{paddingLeft:'0.5rem'}}> 
+                                    <Grid container sx={{margin:"0", padding:"0", backgroundColor: '#4D4B4D', borderRadius:'4px 4px 0 0'}}>
+                                        {/* CARD TITLE */}
+                                        <Grid item xs={12}> 
                                             <Typography variant="h6">
                                                 {mural.name}
                                             </Typography>
                                         </Grid>
-                                        <Grid item xs={3}>
+                                        {/* EDIT BUTTON */}
+                                        <Grid item xs={12}  sx={{width:'100%'}}>
+                                            <MuralModal isInsertModal={false} mural={mural}></MuralModal>
+                                        </Grid>
+                                        {/* INSERT CARD BUTTON */}
+                                        <Grid item xs={12 }  sx={{width:'100%'}}>
                                             <MuralItemModal isInsertModal={true}/>
                                         </Grid>
                                     </Grid>
@@ -42,7 +50,6 @@ class MuralList extends Component<MuralListProps, MuralListState> {
                                         <MuralItemCard listMuralItem={mural.listMuralItem} />
                                     }
                                 </CardContent>
-
                             </Card>
                         </Grid>
                     )

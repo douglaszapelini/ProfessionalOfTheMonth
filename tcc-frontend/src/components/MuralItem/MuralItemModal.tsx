@@ -4,6 +4,7 @@ import AddBoxIcon from '@mui/icons-material/AddBox';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 import { MuralItemModel } from "../../Model/MuralItemModel";
 import EditIcon from '@mui/icons-material/Edit';
+
 interface MuralItemModalProps {
     muralItem?: MuralItemModel,
     isInsertModal: boolean
@@ -71,16 +72,16 @@ class MuralItemModal extends Component<MuralItemModalProps, MuralItemModalState>
                 {/* Button Insert */}
                 {isInsertModal &&
                     <Tooltip title="Add New Card">
-                        <Button onClick={this.handleOpen} size="small">
-                            <AddBoxIcon color="success"/>
+                        <Button onClick={this.handleOpen} variant="contained" fullWidth color="success" sx={{borderRadius:'0 0 4px 4px '}}>
+                            <AddBoxIcon/>
                         </Button>
                     </Tooltip>
                 }
 
-                {/* Button Insert */}
+                {/* Button Edit */}
                 {!isInsertModal &&
                     <Tooltip title="Edit Card">
-                        <Button variant="contained" onClick={this.handleOpen} size="small" sx={{padding: '0.5rem', width: '100%'}}>
+                        <Button variant="contained" onClick={this.handleOpen} fullWidth  sx={{ width: '100%'}}>
                             <EditIcon color="warning"/>
                         </Button>
                     </Tooltip>

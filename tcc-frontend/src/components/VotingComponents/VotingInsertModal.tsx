@@ -36,8 +36,8 @@ class VotingInsertModal extends Component<VotingInsertModalProps, VotingInsertMo
     
     render() { 
         return (
-            <Container>
-                <Button onClick={this.handleOpen} color="success" variant="contained">Insert New Voting</Button>
+            <>
+                <Button onClick={this.handleOpen} fullWidth color="success" sx={{borderRadius:'0'}} variant="contained">Insert New Voting</Button>
                 <Modal
                     open={this.state.showModalInsert}
                     onClose={this.handleClose}
@@ -78,7 +78,7 @@ class VotingInsertModal extends Component<VotingInsertModalProps, VotingInsertMo
                         </Grid>
                     </Box>
                 </Modal>
-            </Container>
+            </>
         );
     }
 }

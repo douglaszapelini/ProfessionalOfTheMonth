@@ -106,7 +106,7 @@ class Sigup extends Component<SigupProps, SigupState> {
                                         <Button color="success" variant="contained" fullWidth  sx={{ height: '3rem'}}>Sig Up</Button>
                                     </Grid>
                                     <Grid item textAlign="center" xs={12} sx={{marginTop: '1rem', marginLeft: '1.5rem', marginRight: '1.5rem', marginBottom: '1.5rem'}}>
-                                        <Button variant="outlined" fullWidth color="inherit" sx={{ height: '3rem'}}>Sig up</Button>
+                                        <Button variant="outlined" fullWidth color="inherit" sx={{ height: '3rem'}}>Login</Button>
                                     </Grid>
                                 </Grid>
                             </Grid>

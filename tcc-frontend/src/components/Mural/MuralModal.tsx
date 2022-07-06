@@ -1,11 +1,14 @@
-import { Box, Button, Container, Grid, Modal, styled, TextField } from "@mui/material";
+import { Box, Button, Container, Grid, Modal, styled, TextField, Tooltip } from "@mui/material";
 import { Component } from "react";
+import EditIcon from '@mui/icons-material/Edit';
+import { MuralModel } from "../../Model/MuralModel";
 
-interface MuralInsertModalProps {
-    
+interface MuralModalProps {
+    isInsertModal: boolean
+    mural?: MuralModel
 }
  
-interface MuralInsertModalState {
+interface MuralModalState {
     showModalInsert: boolean
 }
 
@@ -34,8 +37,8 @@ const CssTextField = styled(TextField)({
   }
 );
  
-class MuralInsertModal extends Component<MuralInsertModalProps, MuralInsertModalState> {
-    constructor(props: MuralInsertModalProps) {
+class MuralModal extends Component<MuralModalProps, MuralModalState> {
+    constructor(props: MuralModalProps) {
         super(props);
         this.state = { showModalInsert: false};
     }
@@ -44,9 +47,24 @@ class MuralInsertModal extends Component<MuralInsertModalProps, MuralInsertModal
     handleClose = () => this.setState({showModalInsert: false});
     
     render() { 
+
+        const {isInsertModal, mural} = this.props;
+
         return (
-            <Container>
-                <Button onClick={this.handleOpen} color="success" variant="contained">Insert New Mural</Button>
+            <>
+
+                {/* INSERT BUTTON */}
+                {isInsertModal && <Button onClick={this.handleOpen}  fullWidth color="success" variant="contained" sx={{borderRadius:'0'}}>Insert New Mural</Button>}
+                
+                {/* EDIT BUTTON */}
+                {!isInsertModal && 
+                    <Tooltip title="Edit Mural">
+                        <Button variant="contained" onClick={this.handleOpen} fullWidth sx={{borderRadius:'0'}}>
+                            <EditIcon color="warning"/>
+                        </Button>
+                    </Tooltip>
+                }
+                
                 <Modal
                     open={this.state.showModalInsert}
                     onClose={this.handleClose}
@@ -54,10 +72,12 @@ class MuralInsertModal extends Component<MuralInsertModalProps, MuralInsertModal
                     <Box sx={{ ...style, width: 400, borderRadius: '4px' }}>
                         <Grid container item>
                             <Grid item xs={12} textAlign="center" sx={{margin: '0', backgroundColor: '#4D4B4D', borderRadius: '4px'}}>
-                                <h1>NEW Mural</h1>
+                                {isInsertModal && <h1>NEW Mural</h1>}
+                                {!isInsertModal && <h1>EDIT Mural</h1>}
                             </Grid>
                             <Grid item sx={{padding:'0.5rem 0'}}>
-                                <p>Fill in the field to insert a new mural...</p>
+                                {isInsertModal &&  <p>Fill in the field to insert a new mural...</p>}
+                                {!isInsertModal &&  <p>Fill in the field to edit mural...</p>}
                             </Grid>
                             <Grid item xs={12} >
                                 <CssTextField
@@ -65,6 +85,7 @@ class MuralInsertModal extends Component<MuralInsertModalProps, MuralInsertModal
                                     id="mural-name-input"
                                     label="Mural name"
                                     variant="outlined"
+                                    defaultValue={!isInsertModal && !!mural ? mural.name : ""}
                                     inputProps={{ maxLength: 25 }}
                                 />
                             </Grid>
@@ -83,9 +104,9 @@ class MuralInsertModal extends Component<MuralInsertModalProps, MuralInsertModal
                         </Grid>
                     </Box>
                 </Modal>
-            </Container>
+            </>
         );
     }
 }
  
-export default MuralInsertModal;
+export default MuralModal;

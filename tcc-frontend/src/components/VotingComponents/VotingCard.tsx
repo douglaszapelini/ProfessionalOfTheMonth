@@ -41,14 +41,11 @@ class VotingCard extends Component<VotingCardProps, VotingCardState> {
 
     render() { 
         return (
-            <>
-                <Grid textAlign="right" sx={{maxWidth: '1120px',paddingBottom:'1.5rem'}}>
-                    <VotingInsertModal/>
-                </Grid>
-                
+            <>               
                 <Card sx={{maxWidth: '1120px', textAlign: 'center'}}>
                         
                     <CardHeader title="Voting" sx={{backgroundColor: '#4D4B4D'}}/>
+                    <VotingInsertModal/>
                     <CardContent>                        
                         <Grid container direction="row" alignItems="center" justifyContent="center">
                             <DataTableVoting/>

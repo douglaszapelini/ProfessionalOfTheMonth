@@ -42,13 +42,9 @@ class UserCard extends Component<UserCardProps, UserCardState> {
     render() { 
         return (
             <>
-                <Grid textAlign="right" sx={{maxWidth: '1120px',paddingBottom:'1.5rem'}}>
-                    <UserInsertModal/>
-                </Grid>
-                
                 <Card sx={{maxWidth: '1120px', textAlign: 'center'}}>
-                        
                     <CardHeader title="Users" sx={{backgroundColor: '#4D4B4D'}}/>
+                    <UserInsertModal/>
                     <CardContent>                        
                         <Grid container direction="row" alignItems="center" justifyContent="center">
                             <DataTableUser/>

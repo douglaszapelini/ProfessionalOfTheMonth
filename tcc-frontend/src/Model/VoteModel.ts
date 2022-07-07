@@ -2,12 +2,12 @@ export class VoteModel{
     id:number;
     votingId: number;
     userVotedId: number;
-    dateVote: Date;
+    profilePicture: string;
 
-    constructor(id:number, votingId:number, userVotedId:number, dateVote:Date) {
+    constructor(id:number, votingId:number, userVotedId:number, profilePicture:string) {
         this.id = id;
         this.votingId = votingId;
         this.userVotedId = userVotedId;
-        this.dateVote = dateVote;
+        this.profilePicture = profilePicture;
     }
 }

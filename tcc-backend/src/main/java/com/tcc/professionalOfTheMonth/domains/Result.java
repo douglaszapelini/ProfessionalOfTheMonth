@@ -37,4 +37,8 @@ public class Result implements Serializable{
 	@Column(name="ic_year")
 	@NotNull(message = "The attribute 'icYear' is required!")
 	private Boolean icYear;
+	
+	@Column(name="ic_use")
+	@NotNull(message = "The attribute 'ic_use' is required!")
+	private Boolean icUse;
 }

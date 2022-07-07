@@ -52,6 +52,9 @@ public class User implements Serializable{
 	
 	private String office;
 	
+	@Column(name="path_profile_picture")
+	private String pathProfileImage;
+	
 	@ManyToOne
 	@JoinColumn(name = "entp_id")
 	@NotNull(message = "The attribute 'enterprise' is required!")

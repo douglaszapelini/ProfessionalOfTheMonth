@@ -27,6 +27,7 @@ CREATE TABLE user_system(
 	user_password TEXT NOT NULL,
 	email TEXT NOT NULL,
 	office TEXT,
+	path_profile_picture TEXT,
 	entp_id INT NOT NULL,
 	ic_admin BOOLEAN NOT NULL,
 	ic_use BOOLEAN NOT NULL,
@@ -72,6 +73,7 @@ CREATE TABLE participant(
 	voti_id INT NOT NULL,
 	user_id INT NOT NULL,
 	ic_voted BOOLEAN NOT NULL,
+	ic_participant BOOLEAN NOT NULL,
 	PRIMARY KEY (id),
 	FOREIGN KEY (user_id) REFERENCES user_system(id),
 	FOREIGN KEY (voti_id) REFERENCES voting(id)

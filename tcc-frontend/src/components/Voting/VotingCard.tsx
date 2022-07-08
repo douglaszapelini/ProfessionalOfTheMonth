@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, FormControl, Grid, styled, TextField } from "@mui/material";
+import { Card, CardContent, CardHeader, Container, FormControl, Grid, styled, TextField } from "@mui/material";
 import { Component } from "react";
 import VotingDataTable from "./VotingDataTable";
 import VotingInsertModal from "./VotingInsertModal";
@@ -42,17 +42,14 @@ class VotingCard extends Component<VotingCardProps, VotingCardState> {
     render() { 
         return (
             <>               
-                <Card sx={{maxWidth: '1120px', textAlign: 'center'}}>
-                        
+                <Card className="notSelected" sx={{maxWidth: '1120px', textAlign: 'center'}}>
                     <CardHeader title="Voting" sx={{backgroundColor: '#4D4B4D'}}/>
                     <VotingInsertModal/>
-                    <body>
                       <CardContent>                        
                           <Grid container direction="row" alignItems="center" justifyContent="center">
                               <VotingDataTable/>
                           </Grid>
                       </CardContent>
-                    </body>
                 </Card>
             </>
         );

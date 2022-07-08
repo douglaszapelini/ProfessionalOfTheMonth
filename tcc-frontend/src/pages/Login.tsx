@@ -5,6 +5,7 @@ import { Component } from "react";
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import FooterComponent from "../components/Footer/FooterComponent";
+import { Link } from "react-router-dom";
 interface LoginProps {
     
 }
@@ -49,7 +50,7 @@ class Login extends Component<LoginProps, LoginState> {
     render() { 
         return (
             <>
-            <Grid container  justifyContent= 'center'  alignItems='center' sx={{height:'96vh'}}>
+            <Grid container className="notSelected" justifyContent= 'center'  alignItems='center' sx={{height:'96vh'}}>
                 <Box sx={{maxWidth: '35rem', height: 'auto'}}>
                     <Card >
                         <CardContent>
@@ -98,7 +99,9 @@ class Login extends Component<LoginProps, LoginState> {
                                         <Button color="success" variant="contained" fullWidth  sx={{ height: '3rem'}}>Login</Button>
                                     </Grid>
                                     <Grid item textAlign="center" xs={12} sx={{marginTop: '1rem', marginLeft: '1.5rem', marginRight: '1.5rem', marginBottom: '1.5rem'}}>
-                                        <Button variant="outlined" fullWidth color="inherit" sx={{ height: '3rem'}}>Sign up</Button>
+                                        <Link to="/signup">
+                                            <Button variant="outlined" fullWidth color="inherit" sx={{ height: '3rem'}}>Sign up</Button>
+                                        </Link>
                                     </Grid>
                                 </Grid>
                             </Grid>

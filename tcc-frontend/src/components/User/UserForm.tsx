@@ -46,7 +46,7 @@ class UserForm extends Component<UserFormProps, UserFormState> {
 
     render() { 
         return (
-            <Card sx={{maxWidth: '1120px', textAlign: 'center'}}>
+            <Card className="notSelected" sx={{maxWidth: '1120px', textAlign: 'center'}}>
                 <CardHeader title={"User Profile"} sx={{backgroundColor: '#4D4B4D'}}/>
                 <CardContent>
                     <Grid container direction="row" alignItems="center" justifyContent="center">

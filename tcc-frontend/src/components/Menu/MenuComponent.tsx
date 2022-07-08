@@ -8,6 +8,7 @@ import WallpaperIcon from '@mui/icons-material/Wallpaper';
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
 import { AppBar, Avatar, Grid, Menu, Toolbar, Typography, MenuItem } from "@mui/material";
+import { Link } from "react-router-dom";
 
 interface MenuComponentProps {
     isAdmin: boolean;
@@ -41,10 +42,10 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             <EmojiEventsOutlinedIcon  sx={{fontSize:'35px'}}/>
                         </Grid>
                         <Grid item sx={{ padding: '8px'}}>
-                            <Typography sx={{display:'flex',justifyContent:'center',fontSize:'15px', fontWeight: 'bolder'}}>
+                            <Typography className="notSelected" sx={{display:'flex',justifyContent:'center',fontSize:'15px', fontWeight: 'bolder'}}>
                                 Professional 
                             </Typography>
-                            <Typography sx={{display:'flex', justifyContent:'center', fontSize:'15px', fontWeight: 'bolder'}}>
+                            <Typography className="notSelected" sx={{display:'flex', justifyContent:'center', fontSize:'15px', fontWeight: 'bolder'}}>
                                 Of The Month
                             </Typography>
                         </Grid>
@@ -54,7 +55,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             <MenuItem>
                                 <DashboardIcon sx={{paddingRight: '0.2rem'}}/>
                                 <Typography>
-                                    Dashboard
+                                    <Link to="/dashboard">Dashboard</Link>
                                 </Typography>
                             </MenuItem>
                         }
@@ -63,7 +64,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             <MenuItem>
                                 <DashboardIcon sx={{paddingRight: '0.2rem'}}/>
                                 <Typography>
-                                    Home
+                                    <Link to="/">Home</Link>
                                 </Typography>
                             </MenuItem>
                         }
@@ -72,7 +73,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             <MenuItem>
                                 <BadgeIcon sx={{paddingRight: '0.2rem'}}/>
                                 <Typography>
-                                    User
+                                    <Link to="/user">User</Link>
                                 </Typography>
                             </MenuItem>
                         }
@@ -81,7 +82,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             <MenuItem>
                                 <HowToVoteIcon sx={{paddingRight: '0.2rem'}}/>
                                 <Typography>
-                                    Voting
+                                    <Link to="/voting">Voting</Link>
                                 </Typography>
                             </MenuItem>
                         }
@@ -89,7 +90,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             <MenuItem>
                                 <WallpaperIcon sx={{paddingRight: '0.2rem'}}/>
                                 <Typography>
-                                    Mural
+                                    <Link to="/mural">Mural</Link>
                                 </Typography>
                             </MenuItem>
                         }
@@ -97,7 +98,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             <MenuItem>
                                 <SettingsIcon/>
                                 <Typography>
-                                    Settings
+                                    <Link to="/settings">Settings</Link>
                                 </Typography>
                             </MenuItem>
                         }
@@ -127,12 +128,14 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                                 <MenuItem onClick={this.handleCloseAvatar}>
                                     <FaceIcon sx={{paddingRight: '0.2rem'}}/>
                                     <Typography>
-                                        Profile
+                                        <Link to="/profile">Profile</Link>
                                     </Typography>
                                 </MenuItem>
                                 <MenuItem onClick={this.handleCloseAvatar}>
                                     <LogoutIcon sx={{paddingRight: '0.2rem'}} />
-                                    <Typography> Logout</Typography>
+                                    <Typography> 
+                                        <Link to="/login">Logout</Link>
+                                    </Typography>
                                 </MenuItem>
                             </Menu>
                         </Grid>

@@ -42,7 +42,7 @@ class UserCard extends Component<UserCardProps, UserCardState> {
     render() { 
         return (
             <>
-                <Card sx={{maxWidth: '1120px', textAlign: 'center'}}>
+                <Card className="notSelected" sx={{maxWidth: '1120px', textAlign: 'center'}}>
                     <CardHeader title="Users" sx={{backgroundColor: '#4D4B4D'}}/>
                     <UserInsertModal/>
                     <CardContent>                        

@@ -103,7 +103,7 @@ class MuralCard extends Component<MuralCardProps, MuralCardState> {
     render() { 
         return (
             <>
-                <Card sx={{textAlign: 'center'}}>
+                <Card className="notSelected" sx={{textAlign: 'center'}}>
                     <CardHeader title="Mural" sx={{backgroundColor: '#4D4B4D'}}/>
                     {listMural.length < 4 && 
                         <Grid container textAlign="right" sx={{paddingBottom:'1.5rem'}}>

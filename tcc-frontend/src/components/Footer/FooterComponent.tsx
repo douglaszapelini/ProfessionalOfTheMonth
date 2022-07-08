@@ -19,7 +19,7 @@ class FooterComponent extends Component<FooterComponentProps, FooterComponentSta
     render() { 
         return (
             <footer>
-                <Box sx={{textAlign:'center', position: 'fixed', bottom: '0', backgroundColor: '#383735', width: '100%'}}>
+                <Box className="notSelected" sx={{textAlign:'center', position: 'fixed', bottom: '0', backgroundColor: '#383735', width: '100%'}}>
                     <Grid container justifyContent='center' alignItems="center" sx={{marginTop:'5px'}}>
                         <Grid item>
                             <a target="_blank" rel="noopener noreferrer" href="https://www.linkedin.com/in/douglassz/">

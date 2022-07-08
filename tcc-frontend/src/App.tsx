@@ -1,11 +1,7 @@
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './App.css'
-import {
-  Routes,
-  Route,
-  Link
-} from "react-router-dom";
+import {Routes,Route} from "react-router-dom";
 import Account from './pages/Account';
 import Login from './pages/Login';
 import Voting from './pages/Voting';
@@ -16,8 +12,8 @@ import User from './pages/User';
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import {LocalizationProvider} from '@mui/lab';
 import Home from './pages/Home';
-import MenuComponent from './components/Menu/MenuComponent';
-
+import { useState } from 'react';
+import ProtectedRoute from './security/ProtectedRoute';
 function App() {
 
   const darkTheme = createTheme({
@@ -35,32 +31,24 @@ function App() {
     },
   });
 
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
+
   return (
     <div className="App">
       <ThemeProvider theme={darkTheme}>
         <LocalizationProvider dateAdapter={AdapterDateFns}>
           <CssBaseline/>
-            
-
-            {/* <MenuComponent isAdmin={true}/> */}
-
             <Routes>
-              <Route path="/" element={<Home />} />
-              <Route path="/profile" element={<Account />} />
+              <Route path="/" element={<ProtectedRoute isLoggedIn={isLoggedIn}> <Home/> </ProtectedRoute>} />
+              <Route path="/profile" element={<ProtectedRoute isLoggedIn={isLoggedIn}> <Account/> </ProtectedRoute>} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
-              <Route path="/voting" element={<Voting />} />
-              <Route path="/user" element={<User />} />
-              <Route path="/mural" element={<Mural />} />
+              <Route path="/voting" element={<ProtectedRoute isLoggedIn={isLoggedIn}><Voting/></ProtectedRoute>} />
+              <Route path="/user" element={<ProtectedRoute isLoggedIn={isLoggedIn}><User/></ProtectedRoute>} />
+              <Route path="/mural" element={<ProtectedRoute isLoggedIn={isLoggedIn}><Mural/></ProtectedRoute>} />
+
               <Route path="*" element={<Login/>} />
             </Routes>
-            {/* <Account/> */}
-            {/* <Login/> */}
-            {/* <Signup/> */}
-            {/* <Mural></Mural> */}
-            {/* <Voting></Voting> */}
-            {/* <User></User> */}
-            {/* <Home></Home> */}
         </LocalizationProvider>
       </ThemeProvider>
     </div>

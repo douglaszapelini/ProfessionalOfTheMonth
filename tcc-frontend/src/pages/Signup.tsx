@@ -4,13 +4,13 @@ import {Box, Button, Card, CardContent, FormControl, Grid, IconButton, InputAdor
 import { Component } from "react";
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import FooterComponent from "../components/FooterComponents/FooterComponent";
+import FooterComponent from "../components/Footer/FooterComponent";
 
-interface SigupProps {
+interface SignupProps {
     
 }
  
-interface SigupState {
+interface SignupState {
     showPassword: boolean;
 }
 
@@ -37,8 +37,8 @@ const CssFormControl= styled(FormControl)({
   }
 );
  
-class Sigup extends Component<SigupProps, SigupState> {
-    constructor(props: SigupProps) {
+class Signup extends Component<SignupProps, SignupState> {
+    constructor(props: SignupProps) {
         super(props);
         this.state = { showPassword: false };
     }
@@ -103,7 +103,7 @@ class Sigup extends Component<SigupProps, SigupState> {
                                         </CssFormControl>
                                     </Grid>
                                     <Grid item textAlign="center" xs={12} sx={{marginTop: '1rem', marginLeft: '1.5rem', marginRight: '1.5rem', marginBottom: '1.5rem'}}>
-                                        <Button color="success" variant="contained" fullWidth  sx={{ height: '3rem'}}>Sig Up</Button>
+                                        <Button color="success" variant="contained" fullWidth  sx={{ height: '3rem'}}>Sign Up</Button>
                                     </Grid>
                                     <Grid item textAlign="center" xs={12} sx={{marginTop: '1rem', marginLeft: '1.5rem', marginRight: '1.5rem', marginBottom: '1.5rem'}}>
                                         <Button variant="outlined" fullWidth color="inherit" sx={{ height: '3rem'}}>Login</Button>
@@ -120,4 +120,4 @@ class Sigup extends Component<SigupProps, SigupState> {
     }
 }
  
-export default Sigup;
+export default Signup;

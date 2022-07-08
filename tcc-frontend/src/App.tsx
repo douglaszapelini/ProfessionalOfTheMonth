@@ -1,15 +1,16 @@
 import { CssBaseline } from '@mui/material';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
-import MenuComponent from './components/MenuComponents/MenuComponent';
+import './App.css'
 import Account from './pages/Account';
 import Login from './pages/Login';
 import Voting from './pages/Voting';
+import Mural from './pages/Mural';
+import Signup from './pages/Signup';
+import User from './pages/User';
 
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import {LocalizationProvider} from '@mui/lab';
-import Mural from './pages/Mural';
-import Sigup from './pages/Sigup';
-import User from './pages/User';
+import Home from './pages/Home';
 
 function App() {
 
@@ -33,12 +34,13 @@ function App() {
       <LocalizationProvider dateAdapter={AdapterDateFns}>
         <CssBaseline/>
         <div className="App">
-          <Account/>
-          {/* <Login></Login> */}
-          {/* <Sigup></Sigup> */}
-          {/* <Voting></Voting> */}
+          {/* <Account/> */}
+          {/* <Login/> */}
+          {/* <Signup/> */}
           {/* <Mural></Mural> */}
+          {/* <Voting></Voting> */}
           {/* <User></User> */}
+          <Home></Home>
         </div>
       </LocalizationProvider>
     </ThemeProvider>

@@ -1,8 +1,8 @@
-import { AppBar, Box, Container, Toolbar } from "@mui/material";
+import { AppBar, Box, Toolbar } from "@mui/material";
 import { Component } from "react";
-import FooterComponent from "../components/FooterComponents/FooterComponent";
+import FooterComponent from "../components/Footer/FooterComponent";
 import HomeCard from "../components/Home/HomeCard";
-import MenuComponent from "../components/MenuComponents/MenuComponent";
+import MenuComponent from "../components/Menu/MenuComponent";
 
 interface HomeProps {
 }
@@ -23,9 +23,9 @@ class Home extends Component<HomeProps, HomeState> {
                     <MenuComponent isAdmin={true}/>
                     <AppBar/>
                     <Toolbar/>
-                    <Container sx={{marginTop: '1rem'}}>
+                    <Box sx={{margin: '3rem'}}>
                         <HomeCard></HomeCard>
-                    </Container>
+                    </Box>
                     <FooterComponent/>
                 </Box>
 

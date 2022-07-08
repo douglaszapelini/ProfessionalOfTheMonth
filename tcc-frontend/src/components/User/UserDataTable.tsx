@@ -2,11 +2,11 @@ import { Box } from "@mui/material";
 import { Component } from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
-interface DataTableVotingProps {
+interface UserDataTableProps {
     
 }
  
-interface DataTableVotingState {
+interface UserDataTableState {
     
 }
  
@@ -59,8 +59,8 @@ const columns: GridColDef[] = [
     { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
   ];
 
-class DataTableVoting extends Component<DataTableVotingProps, DataTableVotingState> {
-    constructor(props: DataTableVotingProps) {
+class UserDataTable extends Component<UserDataTableProps, UserDataTableState> {
+    constructor(props: UserDataTableProps) {
         super(props);
         // this.state = { :  };
     }
@@ -80,4 +80,4 @@ class DataTableVoting extends Component<DataTableVotingProps, DataTableVotingSta
     }
 }
  
-export default DataTableVoting;
+export default UserDataTable;

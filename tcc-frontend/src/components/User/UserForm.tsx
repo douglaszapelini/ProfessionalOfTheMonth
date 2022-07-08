@@ -1,5 +1,5 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Button, Card, CardContent, CardHeader, FormControl, FormControlLabel, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, styled, Switch, TextField } from "@mui/material";
+import { Avatar, Button, Card, CardContent, CardHeader, FormControl, FormControlLabel, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, styled, Switch, TextField } from "@mui/material";
 import { Component } from "react";
 
 interface UserFormProps {
@@ -33,6 +33,7 @@ const CssFormControl= styled(FormControl)({
   }
 );
 
+const imgDefault = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 class UserForm extends Component<UserFormProps, UserFormState> {
     constructor(props: UserFormProps) {
         super(props);
@@ -49,6 +50,13 @@ class UserForm extends Component<UserFormProps, UserFormState> {
                 <CardHeader title={"User Profile"} sx={{backgroundColor: '#4D4B4D'}}/>
                 <CardContent>
                     <Grid container direction="row" alignItems="center" justifyContent="center">
+                        <Grid item xs={8} sx={{paddingBottom: '0.8rem', display:'flex', justifyContent:'center'}}>
+                            <Avatar
+                                alt="Remy Sharp"
+                                src={imgDefault}
+                                sx={{ width: 300, height: 300 }}
+                            />
+                        </Grid>
                         <Grid item xs={8} sx={{paddingBottom: '0.8rem'}}>
                             <CssTextField
                                 fullWidth
@@ -57,9 +65,6 @@ class UserForm extends Component<UserFormProps, UserFormState> {
                                 variant="outlined"
                             />
                         </Grid>
-                        {/* CASO NÃO SEJA CADASTRO, MOSTRAR O CAMPO DE SENHA PARA ALTERAR
-                                                AJUSTAR DEPOIS
-                        */}
                         <Grid item xs={8} sx={{paddingBottom: '0.8rem'}}>
                             <CssFormControl sx={{ width: '40%', marginRight:'2%' }} variant="outlined">
                                 <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
@@ -85,21 +90,6 @@ class UserForm extends Component<UserFormProps, UserFormState> {
                                 id="office-input"
                                 label="Office"
                                 variant="outlined"
-                            />
-                        </Grid>
-                        <Grid item xs={10}>
-                            <FormControlLabel
-                                value="isEligible"
-                                control={<Switch color="success" />}
-                                label="Can the employee vote?"
-                                labelPlacement="start"
-                                sx={{paddingRight:'3rem'}}
-                            />
-                            <FormControlLabel
-                                value="isElection"
-                                control={<Switch color="success" />}
-                                label="Participe in the votation?"
-                                labelPlacement="start"
                             />
                         </Grid>
                         <Grid container alignItems="center" justifyContent="center" xs={10}>

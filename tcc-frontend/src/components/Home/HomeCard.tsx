@@ -1,16 +1,16 @@
-import { Avatar, Box, Card, CardContent, CardHeader, CardMedia, Grid, Radio, Typography } from '@mui/material';
+import { Avatar, Box, Card, CardContent, CardHeader, CardMedia, Container, Grid, Radio, Typography } from '@mui/material';
 import { Component } from 'react';
 import { ParticipantsCardModel } from '../../Model/ParticipantsCardModel';
 import { pink } from '@mui/material/colors';
 
-import ParticipantCard from './Participant/ParticipantCard';
+import ParticipantCard from '../Participant/ParticipantCard';
 
 interface HomeCardProps {
 }
  
 interface HomeCardState {
     listParticipants: Array<ParticipantsCardModel>;
-    selectedValue: string;
+    voted: boolean;
 }
 
 // id: number;
@@ -26,7 +26,7 @@ const list: Array<ParticipantsCardModel> = [
         userId: 1,
         voted: false,
         participant: true,
-        username: 'Douglas de Souza Zapelini'
+        username: 'Douglas de Souza Zapelini antonio'
     },
     {
         id: 2,
@@ -83,7 +83,7 @@ const list: Array<ParticipantsCardModel> = [
         profilePicture: 'https://support.apple.com/content/dam/edam/applecare/images/en_US/psp/featured-section-give-back-trade-in_2x.jpg'
     },
     {
-        id: 7,
+        id: 8,
         votingId: 1,
         userId: 8,
         username: 'Douglas',
@@ -92,7 +92,7 @@ const list: Array<ParticipantsCardModel> = [
         profilePicture: 'https://support.apple.com/content/dam/edam/applecare/images/en_US/psp/featured-section-give-back-trade-in_2x.jpg'
     },
     {
-        id: 7,
+        id:9,
         votingId: 1,
         userId: 9,
         username: 'Douglas',
@@ -101,7 +101,7 @@ const list: Array<ParticipantsCardModel> = [
         profilePicture: 'https://support.apple.com/content/dam/edam/applecare/images/en_US/psp/featured-section-give-back-trade-in_2x.jpg'
     },
     {
-        id: 7,
+        id: 10,
         votingId: 1,
         userId: 10,
         username: 'Douglas',
@@ -110,7 +110,7 @@ const list: Array<ParticipantsCardModel> = [
         profilePicture: 'https://support.apple.com/content/dam/edam/applecare/images/en_US/psp/featured-section-give-back-trade-in_2x.jpg'
     },
     {
-        id: 7,
+        id: 11,
         votingId: 1,
         userId: 11,
         username: 'Douglas',
@@ -119,7 +119,7 @@ const list: Array<ParticipantsCardModel> = [
         profilePicture: 'https://support.apple.com/content/dam/edam/applecare/images/en_US/psp/featured-section-give-back-trade-in_2x.jpg'
     },
     {
-        id: 7,
+        id: 12,
         votingId: 1,
         userId: 12,
         username: 'Douglas',
@@ -128,7 +128,7 @@ const list: Array<ParticipantsCardModel> = [
         profilePicture: 'https://support.apple.com/content/dam/edam/applecare/images/en_US/psp/featured-section-give-back-trade-in_2x.jpg'
     },
     {
-        id: 7,
+        id: 13,
         votingId: 1,
         userId: 13,
         username: 'Douglas',
@@ -145,73 +145,44 @@ class HomeCard extends Component <HomeCardProps, HomeCardState>{
     
     constructor(props: HomeCardProps) {
         super(props);
-        this.state = {selectedValue: '', listParticipants: []}
+        this.state = {voted: true, listParticipants: []}
     }
-
-    handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-        this.setState({selectedValue: event.target.value});
-    };
 
     render() {
         const participants = list.filter( participant => (participant.participant));
-        const {selectedValue} = this.state;
+        const {voted} = this.state;
 
         return (
-            <Grid container justifyContent='center' textAlign='center' sx={{marginBottom:'2rem'}}>
-                <Card sx={{width: '100%'}}>
-                    {/* CARD TITLE*/}
-                    <CardHeader title="Voting" sx={{backgroundColor: '#4D4B4D', borderRadius: '4px'}}/>
-                    <Grid container justifyContent='center'>
-                        {participants.map( participant =>{
-                            return(
-                                <Card  key={participant.id} sx={{ width:'12rem', height: '14.5rem', backgroundColor: '#808080', border: '1px solid white', margin:'1rem', justifyContent:'center'}}>
-                                    
-                                    {/* CARD TITLE*/}
-                                    <Grid sx={{backgroundColor: '#373737', borderRadius:'4px 4px 0 0', width:'100%'}}>
-                                        <Radio
-                                            checked={selectedValue === participant.userId.toString()}
-                                            onChange={this.handleChange}
-                                            value={participant.userId.toString()}
-                                            name="radio-buttons"
-                                            inputProps={{ 'aria-label': participant.userId.toString() }}
-                                            sx={{
-                                                color: 'white',
-                                                '&.Mui-checked': {
-                                                  color: 'green',
-                                                },
-                                              }}
-                                        />
-                                    </Grid>
-                                    
-                                    <Box sx={{justifyContent:'center', display:'flex', margin:'1rem 0'}}>
-                                        {!!participant.profilePicture &&
-                                            <Avatar
-                                                alt="Remy Sharp"
-                                                src={participant.profilePicture}
-                                                sx={{ width: 80, height: 80 }}
-                                            />
-                                        }
-                                        {!participant.profilePicture &&
-                                            <Avatar
-                                                alt="Remy Sharp"
-                                                src={imgDefault}
-                                                sx={{ width: 80, height: 80, textAlign:'center'  }}
-                                            />
-                                        }
-                                        
-                                    </Box>
-                                    <Box sx={{display:'flex',backgroundColor: '#696969', height:'5rem', alignItems:'center', justifyContent:'center'}} >
-                                        <Typography variant="body1" color="text.secondary">
-                                            {participant.username}
-                                        </Typography>
-                                    </Box>
-                                </Card>
-                            )
-                        })}
+            <>
+            {voted &&
+                <Container>
+                    <Grid container justifyContent='center' textAlign='center' sx={{marginBottom:'2rem'}}>
+                        <Card sx={{width: '100%'}}>
+                            <CardContent>
+                                <Typography variant='h3'>There isn't any voting avaible to you right now.</Typography>
+                                <Typography variant='h3'>See you next, good lucky! 😄 </Typography>
+                            </CardContent>
+                        </Card>
                     </Grid>
-                </Card>
-            </Grid>
-            
+                </Container>
+            }
+
+            {!voted &&
+                <Grid container justifyContent='center' textAlign='center' sx={{marginBottom:'2rem'}}>
+                    <Card sx={{width: '100%'}}>
+                        {/* CARD TITLE*/}
+                        <CardHeader title="Voting" sx={{backgroundColor: '#4D4B4D', borderRadius: '4px'}}/>
+                        <Grid container justifyContent='center' sx={{marginTop:'0.5rem'}}>
+                            {participants.map( participant =>{
+                                return(
+                                    <ParticipantCard participant={participant}  key={participant.id}/>
+                                )
+                            })}
+                        </Grid>
+                    </Card>
+                </Grid>
+            }
+            </>
         );
     }
 }

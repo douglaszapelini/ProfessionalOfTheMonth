@@ -1,9 +1,9 @@
 import {Component, SyntheticEvent} from 'react';
 import Box from '@mui/material/Box';
 import { AppBar, Container, Toolbar } from '@mui/material';
-import UserForm from '../components/UserComponents/UserForm';
-import MenuComponent from '../components/MenuComponents/MenuComponent';
-import FooterComponent from '../components/FooterComponents/FooterComponent';
+import UserForm from '../components/User/UserForm';
+import MenuComponent from '../components/Menu/MenuComponent';
+import FooterComponent from '../components/Footer/FooterComponent';
 
 interface AccountProps {
 }

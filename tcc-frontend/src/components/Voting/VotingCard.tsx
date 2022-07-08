@@ -1,6 +1,6 @@
 import { Card, CardContent, CardHeader, FormControl, Grid, styled, TextField } from "@mui/material";
 import { Component } from "react";
-import DataTableVoting from "./DataTableVoting";
+import VotingDataTable from "./VotingDataTable";
 import VotingInsertModal from "./VotingInsertModal";
 
 interface VotingCardProps {
@@ -46,11 +46,13 @@ class VotingCard extends Component<VotingCardProps, VotingCardState> {
                         
                     <CardHeader title="Voting" sx={{backgroundColor: '#4D4B4D'}}/>
                     <VotingInsertModal/>
-                    <CardContent>                        
-                        <Grid container direction="row" alignItems="center" justifyContent="center">
-                            <DataTableVoting/>
-                        </Grid>
-                    </CardContent>
+                    <body>
+                      <CardContent>                        
+                          <Grid container direction="row" alignItems="center" justifyContent="center">
+                              <VotingDataTable/>
+                          </Grid>
+                      </CardContent>
+                    </body>
                 </Card>
             </>
         );

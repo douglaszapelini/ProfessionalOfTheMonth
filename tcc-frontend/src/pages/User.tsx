@@ -1,8 +1,8 @@
 import { AppBar, Box, Container, Toolbar } from "@mui/material";
 import { Component } from "react";
-import FooterComponent from "../components/FooterComponents/FooterComponent";
-import MenuComponent from "../components/MenuComponents/MenuComponent";
-import UserCard from "../components/UserComponents/UserCard";
+import FooterComponent from "../components/Footer/FooterComponent";
+import MenuComponent from "../components/Menu/MenuComponent";
+import UserCard from "../components/User/UserCard";
 
 interface VotingProps {
     

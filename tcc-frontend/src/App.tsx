@@ -3,7 +3,7 @@ import { ThemeProvider, createTheme } from '@mui/material/styles';
 import './App.css'
 import {Routes,Route} from "react-router-dom";
 import Account from './pages/Account';
-import Login from './pages/Login';
+import {Login} from './pages/Login';
 import Voting from './pages/Voting';
 import Mural from './pages/Mural';
 import Signup from './pages/Signup';
@@ -12,8 +12,8 @@ import User from './pages/User';
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import {LocalizationProvider} from '@mui/lab';
 import Home from './pages/Home';
-import { useState } from 'react';
-import ProtectedRoute from './security/ProtectedRoute';
+import {ProtectedRoute} from './components/ProtectedRoute';
+import { AuthProvider } from './context';
 function App() {
 
   const darkTheme = createTheme({
@@ -31,26 +31,26 @@ function App() {
     },
   });
 
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
-
   return (
     <div className="App">
-      <ThemeProvider theme={darkTheme}>
-        <LocalizationProvider dateAdapter={AdapterDateFns}>
-          <CssBaseline/>
-            <Routes>
-              <Route path="/" element={<ProtectedRoute isLoggedIn={isLoggedIn}> <Home/> </ProtectedRoute>} />
-              <Route path="/profile" element={<ProtectedRoute isLoggedIn={isLoggedIn}> <Account/> </ProtectedRoute>} />
-              <Route path="/login" element={<Login />} />
-              <Route path="/signup" element={<Signup />} />
-              <Route path="/voting" element={<ProtectedRoute isLoggedIn={isLoggedIn}><Voting/></ProtectedRoute>} />
-              <Route path="/user" element={<ProtectedRoute isLoggedIn={isLoggedIn}><User/></ProtectedRoute>} />
-              <Route path="/mural" element={<ProtectedRoute isLoggedIn={isLoggedIn}><Mural/></ProtectedRoute>} />
+      <AuthProvider>
+        <ThemeProvider theme={darkTheme}>
+          <LocalizationProvider dateAdapter={AdapterDateFns}>
+            <CssBaseline/>
+              <Routes>
+                <Route path="/" element={<ProtectedRoute> <Home/> </ProtectedRoute>} />
+                <Route path="/profile" element={<ProtectedRoute> <Account/> </ProtectedRoute>} />
+                <Route path="/login" element={<Login />} />
+                <Route path="/signup" element={<Signup />} />
+                <Route path="/voting" element={<ProtectedRoute> <Voting/> </ProtectedRoute>} />
+                <Route path="/user" element={<ProtectedRoute> <User/> </ProtectedRoute>} />
+                <Route path="/mural" element={<ProtectedRoute> <Mural/> </ProtectedRoute>} />
 
-              <Route path="*" element={<Login/>} />
-            </Routes>
-        </LocalizationProvider>
-      </ThemeProvider>
+                <Route path="*" element={<Login/>} />
+              </Routes>
+          </LocalizationProvider>
+        </ThemeProvider>
+      </AuthProvider>
     </div>
   )
 }

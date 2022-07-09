@@ -1,7 +1,7 @@
 import { Card, CardContent, CardHeader, FormControl, Grid, styled, TextField } from "@mui/material";
 import { Component } from "react";
-import DataTableUser from "./UserDataTable";
-import UserInsertModal from "./UserInsertModal";
+import DataTableUser from "../UserDataTable";
+import UserInsertModal from "../UserInsertModal";
 
 interface UserCardProps {
 }

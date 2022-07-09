@@ -1,8 +1,8 @@
 import { AppBar, Box, Toolbar } from "@mui/material";
 import { Component } from "react";
-import FooterComponent from "../components/Footer/FooterComponent";
-import HomeCard from "../components/Home/HomeCard";
-import MenuComponent from "../components/Menu/MenuComponent";
+import FooterComponent from "../components/Footer";
+import HomeCard from "../components/Home";
+import MenuComponent from "../components/Menu";
 
 interface HomeProps {
 }

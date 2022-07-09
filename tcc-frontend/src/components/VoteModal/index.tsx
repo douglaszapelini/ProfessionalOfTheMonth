@@ -1,6 +1,6 @@
 import { Box, Button, FormControlLabel, Grid, Modal, styled, Switch, TextField } from "@mui/material";
 import { Component } from "react";
-import { ParticipantsCardModel } from "../../Model/ParticipantsCardModel";
+import { ParticipantsCardModel } from "../../model/ParticipantsCardModel";
 
 interface VoteModalProps {
     participant: ParticipantsCardModel
@@ -56,7 +56,7 @@ class VoteModal extends Component<VoteModalProps, VoteModalState> {
                     onClose={this.handleClose}
                 >
                     <Box sx={{ ...style, width: 400, borderRadius: '4px' }}>
-                        <Grid container item>
+                        <Grid container>
                             <Grid item xs={12}textAlign="center" sx={{margin: '0', backgroundColor: '#4D4B4D', borderRadius: '4px'}}>
                                 <h1>VOTE</h1>
                             </Grid>
@@ -69,7 +69,7 @@ class VoteModal extends Component<VoteModalProps, VoteModalState> {
                                        no
                                     </Button>
                                 </Grid>
-                                <Grid container xs={9} sx={{display: 'flex', justifyContent: 'right'}}>
+                                <Grid item xs={9} sx={{display: 'flex', justifyContent: 'right'}}>
                                     <Button onClick={this.handleClose} color="success" variant="contained">
                                         confirm
                                     </Button>

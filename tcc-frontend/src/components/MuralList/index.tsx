@@ -1,9 +1,9 @@
 import { Card, CardContent, Grid, Tooltip, Typography } from "@mui/material";
 import { Component } from "react";
-import { MuralModel } from "../../Model/MuralModel";
-import MuralItemCard from "../MuralItem/MuralItemCard";
-import MuralItemModal from "../MuralItem/MuralItemModal";
-import MuralModal from "./MuralModal";
+import { MuralModel } from "../../model/MuralModel";
+import MuralItemCard from "../MuralItemCard";
+import MuralItemModal from "../MuralItemModal";
+import MuralModal from "../MuralModal";
 
 interface MuralListProps {
     listMural: Array<MuralModel>

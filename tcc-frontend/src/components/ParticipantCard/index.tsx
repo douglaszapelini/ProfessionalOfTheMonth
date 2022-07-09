@@ -1,7 +1,7 @@
 import { Avatar, Box, Button, Card, CardContent, CardHeader, CardMedia, FormControlLabel, Grid, Radio, Typography } from '@mui/material';
 import { Component } from 'react';
-import { ParticipantsCardModel } from '../../Model/ParticipantsCardModel';
-import VoteModal from '../Vote/VoteModal';
+import { ParticipantsCardModel } from '../../model/ParticipantsCardModel';
+import VoteModal from '../VoteModal';
 
 interface ParticipantCardProps {
     participant: ParticipantsCardModel

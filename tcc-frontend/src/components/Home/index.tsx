@@ -1,9 +1,9 @@
 import { Avatar, Box, Card, CardContent, CardHeader, CardMedia, Container, Grid, Radio, Typography } from '@mui/material';
 import { Component } from 'react';
-import { ParticipantsCardModel } from '../../Model/ParticipantsCardModel';
+import { ParticipantsCardModel } from '../../model/ParticipantsCardModel';
 import { pink } from '@mui/material/colors';
 
-import ParticipantCard from '../Participant/ParticipantCard';
+import ParticipantCard from '../ParticipantCard';
 
 interface HomeCardProps {
 }
@@ -145,7 +145,7 @@ class HomeCard extends Component <HomeCardProps, HomeCardState>{
     
     constructor(props: HomeCardProps) {
         super(props);
-        this.state = {voted: true, listParticipants: []}
+        this.state = {voted: false, listParticipants: []}
     }
 
     render() {

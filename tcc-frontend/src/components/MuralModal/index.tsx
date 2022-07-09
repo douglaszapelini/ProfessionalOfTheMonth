@@ -1,7 +1,7 @@
 import { Box, Button, Container, Grid, Modal, styled, TextField, Tooltip } from "@mui/material";
 import { Component } from "react";
 import EditIcon from '@mui/icons-material/Edit';
-import { MuralModel } from "../../Model/MuralModel";
+import { MuralModel } from "../../model/MuralModel";
 
 interface MuralModalProps {
     isInsertModal: boolean

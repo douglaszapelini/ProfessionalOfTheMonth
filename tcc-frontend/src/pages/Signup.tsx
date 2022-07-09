@@ -4,7 +4,7 @@ import {Box, Button, Card, CardContent, FormControl, Grid, IconButton, InputAdor
 import { Component } from "react";
 import EmojiEventsIcon from '@mui/icons-material/EmojiEvents';
 import { Visibility, VisibilityOff } from "@mui/icons-material";
-import FooterComponent from "../components/Footer/FooterComponent";
+import FooterComponent from "../components/Footer";
 import { Link } from "react-router-dom";
 
 interface SignupProps {
@@ -65,7 +65,7 @@ class Signup extends Component<SignupProps, SignupState> {
                                 <Grid item xs={12} sx={{ backgroundColor: '#4D4B4D', borderRadius: '0 0 4px 4px', border: '2px solid black'}}>
                                     <Grid item textAlign="center" xs={12} sx={{margin: '1.5rem'}}>
                                         <Typography variant="h3">
-                                            Sig Up
+                                            Sign Up
                                         </Typography>
                                     </Grid>
                                     <Grid item textAlign="center" xs={12} sx={{marginTop: '1.5rem', marginLeft: '1.5rem', marginRight: '1.5rem'}}>

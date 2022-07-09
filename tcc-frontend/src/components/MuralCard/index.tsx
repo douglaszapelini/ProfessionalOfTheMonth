@@ -1,8 +1,8 @@
 import { Card, CardContent, CardHeader, Grid } from "@mui/material";
 import { Component } from "react";
-import { MuralModel } from "../../Model/MuralModel";
-import MuralList from "./MuralList";
-import MuralModal from "./MuralModal";
+import { MuralModel } from "../../model/MuralModel";
+import MuralList from "../MuralList";
+import MuralModal from "../MuralModal";
 
 interface MuralCardProps {
 }

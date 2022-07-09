@@ -2,7 +2,7 @@ import { Box, Button, Grid, ImageListItem, Modal, styled, TextField, Tooltip } f
 import { Component } from "react";
 import AddBoxIcon from '@mui/icons-material/AddBox';
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
-import { MuralItemModel } from "../../Model/MuralItemModel";
+import { MuralItemModel } from "../../model/MuralItemModel";
 import EditIcon from '@mui/icons-material/Edit';
 
 interface MuralItemModalProps {

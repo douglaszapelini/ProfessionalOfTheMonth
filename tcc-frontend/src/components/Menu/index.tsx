@@ -28,6 +28,10 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
     handleCloseAvatar= () =>{
         this.setState({anchorElAvatar: null});
     }
+
+    handleLogout= () =>{
+        this.setState({anchorElAvatar: null});
+    }
     
     handleMenuAvatar = (event: React.MouseEvent<HTMLElement>) => {
         this.setState({anchorElAvatar:(event.currentTarget)});

@@ -1,8 +1,9 @@
 import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Component } from "react";
-import { MuralItemModel } from "../../Model/MuralItemModel";
 import { DragDropContext, Draggable, Droppable, DropResult } from "react-beautiful-dnd"
-import MuralItemModal from "./MuralItemModal";
+import { MuralItemModel } from "../../model/MuralItemModel";
+import MuralItemModal from "../MuralItemModal";
+
 
 interface MuralItemCardProps {
     listMuralItem: Array<MuralItemModel>

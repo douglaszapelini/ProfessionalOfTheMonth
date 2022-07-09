@@ -6,7 +6,8 @@ import BadgeIcon from '@mui/icons-material/Badge';
 import HowToVoteIcon from '@mui/icons-material/HowToVote';
 import WallpaperIcon from '@mui/icons-material/Wallpaper';
 import DashboardIcon from '@mui/icons-material/Dashboard';
-import EmojiEventsOutlinedIcon from '@mui/icons-material/EmojiEventsOutlined';
+import HomeIcon from '@mui/icons-material/Home';
+import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
 import { AppBar, Avatar, Grid, Menu, Toolbar, Typography, MenuItem } from "@mui/material";
 import { Link } from "react-router-dom";
 
@@ -41,9 +42,9 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
         return (
             <AppBar>
                 <Toolbar >
-                    <Grid container direction="row" sx={{maxWidth: '10rem'}}>
+                    <Grid container direction="row" sx={{maxWidth: '12rem'}}>
                         <Grid item sx={{display:'flex', alignItems: 'center'}}>
-                            <EmojiEventsOutlinedIcon  sx={{fontSize:'35px'}}/>
+                            <EmojiEventsTwoToneIcon color="warning"  sx={{fontSize:'35px'}}/>
                         </Grid>
                         <Grid item sx={{ padding: '8px'}}>
                             <Typography className="notSelected" sx={{display:'flex',justifyContent:'center',fontSize:'15px', fontWeight: 'bolder'}}>
@@ -53,22 +54,24 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                                 Of The Month
                             </Typography>
                         </Grid>
+                        <Grid item sx={{display:'flex', alignItems: 'center'}}>
+                            <EmojiEventsTwoToneIcon color="warning"  sx={{fontSize:'35px'}}/>
+                        </Grid>
                     </Grid>
                     <Grid container direction="row" textAlign="center">
+
+                        <MenuItem>
+                            <HomeIcon sx={{paddingRight: '0.2rem'}}/>
+                            <Typography>
+                                <Link to="/">Home</Link>
+                            </Typography>
+                        </MenuItem>
+
                         {this.props.isAdmin && 
                             <MenuItem>
                                 <DashboardIcon sx={{paddingRight: '0.2rem'}}/>
                                 <Typography>
                                     <Link to="/dashboard">Dashboard</Link>
-                                </Typography>
-                            </MenuItem>
-                        }
-
-                        {!this.props.isAdmin && 
-                            <MenuItem>
-                                <DashboardIcon sx={{paddingRight: '0.2rem'}}/>
-                                <Typography>
-                                    <Link to="/">Home</Link>
                                 </Typography>
                             </MenuItem>
                         }
@@ -107,7 +110,7 @@ class MenuComponent extends Component<MenuComponentProps, MenuComponentState> {
                             </MenuItem>
                         }
                     </Grid>
-                    <Grid container direction="row-reverse">
+                    <Grid container direction="row-reverse" sx={{maxWidth: '5rem'}}>
                         <Grid item sx={{display:'flex', alignItems: 'center'}}>
                             <Avatar
                                 sx={{ width: '2.2rem', height: '2.2rem', cursor: 'pointer' }}

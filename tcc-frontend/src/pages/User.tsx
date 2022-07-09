@@ -19,15 +19,17 @@ class Voting extends Component<VotingProps, VotingState> {
     }
     render() { 
         return (
-            <Box sx={{ width: '100%', typography: 'body1' }}>
-                <MenuComponent isAdmin={true}/>
-                <AppBar/>
-                <Toolbar/>
-                <Container fixed sx={{marginTop: '2%'}}>
-                    <UserCard></UserCard>
-                </Container>
+            <>
+                <Box sx={{ width: '100%', typography: 'body1', height: 'calc(100vh - 41px)' }}>
+                    <MenuComponent isAdmin={true}/>
+                    <AppBar/>
+                    <Toolbar/>
+                    <Container fixed sx={{marginTop: '2%'}}>
+                        <UserCard></UserCard>
+                    </Container>
+                </Box>
                 <FooterComponent/>
-            </Box>
+            </>
         );
     }
 }

@@ -25,7 +25,7 @@ import com.tcc.professionalOfTheMonth.domains.User;
 
 public class JwtAuthFilter extends UsernamePasswordAuthenticationFilter{
 	
-	public static final int TOKEN_EXPIRATION = 600_000;
+	public static final int TOKEN_EXPIRATION = 14_400_000;
 	public static final String TOKEN_PASSWORD = "b63390c8-ff48-4e4e-8469-1e6b4cb08264";
 	
 	private final AuthenticationManager authenticationManager;
@@ -63,6 +63,8 @@ public class JwtAuthFilter extends UsernamePasswordAuthenticationFilter{
 				sign(Algorithm.HMAC512(TOKEN_PASSWORD));
 		
 		response.getWriter().write(token);
+		response.getWriter().write("\n" + userData.getUsername());
+		response.getWriter().write("\n" + new Date(System.currentTimeMillis() + TOKEN_EXPIRATION).toString());
 		response.getWriter().flush();
 				
 	}

@@ -14,8 +14,6 @@ export const ProtectedRoute = (props: ProtectedRouteProps) => {
   const userLocalStorage = getUserLocalStorage();
 
   const { redirectPath, children } = props;
-  console.log(!!userLocalStorage)
-  console.log(auth)
   if(!auth.email){
     return(
       <Navigate to={!!redirectPath ? redirectPath : "/login"} replace/>

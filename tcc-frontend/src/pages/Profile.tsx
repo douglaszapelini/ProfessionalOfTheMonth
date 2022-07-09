@@ -23,15 +23,17 @@ class Account extends Component<AccountProps, AccountState> {
 
     render() { 
         return (
-            <Box sx={{ width: '100%', typography: 'body1' }}>
-                <MenuComponent isAdmin={true}/>
-                <AppBar/>
-                <Toolbar/>
-                <Container fixed sx={{marginTop: '2%'}}>
-                    <UserForm></UserForm>
-                </Container>
+            <>
+                <Box sx={{ width: '100%', typography: 'body1', height: 'calc(100vh - 41px)' }}>
+                    <MenuComponent isAdmin={true}/>
+                    <AppBar/>
+                    <Toolbar/>
+                    <Container fixed sx={{marginTop: '2%'}}>
+                        <UserForm></UserForm>
+                    </Container>
+                </Box>            
                 <FooterComponent/>
-            </Box>
+            </>
         );
     }
 }

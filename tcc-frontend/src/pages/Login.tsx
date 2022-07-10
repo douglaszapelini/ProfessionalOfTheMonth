@@ -76,7 +76,7 @@ export const Login = () => {
         <>
         <Grid container className="notSelected" justifyContent= 'center'  alignItems='center' sx={{height: 'calc(100vh - 41px)'}}>
             <Box sx={{maxWidth: '35rem', height: 'auto'}}>
-                <form onSubmit={hundleSubmit}>
+                <form onSubmit={hundleSubmit} autoComplete="no">
                     <Card >
                         <CardContent>            
                             <Grid container >
@@ -107,6 +107,7 @@ export const Login = () => {
                                             id="email-input"
                                             fullWidth
                                             required
+                                            autoComplete="TESTE"
                                             label="Email"
                                         />
                                     </Grid>

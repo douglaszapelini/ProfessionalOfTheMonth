@@ -15,6 +15,7 @@ import Home from './pages/Home';
 import {ProtectedRoute} from './components/ProtectedRoute';
 import { AuthProvider } from './context';
 import { Settings } from './pages/Settings'
+import { ShowMural } from './pages/ShowMural';
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
                 <Route path="/user" element={<ProtectedRoute> <User/> </ProtectedRoute>} />
                 <Route path="/mural" element={<ProtectedRoute> <Mural/> </ProtectedRoute>} />
                 <Route path="/settings" element={ <Settings  /> } />
+                <Route path="/showMural" element={ <ShowMural  /> } />
 
                 <Route path="*" element={<Login/>} />
               </Routes>

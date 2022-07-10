@@ -2,7 +2,7 @@ import { AppBar, Box, Container, Toolbar } from "@mui/material";
 import { Component } from "react";
 import FooterComponent from "../components/Footer";
 import MenuComponent from "../components/Menu";
-import MuralCard from "../components/MuralCard";
+import {MuralCard} from "../components/MuralCard";
 
 interface MuralProps {
     

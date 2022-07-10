@@ -3,6 +3,13 @@ a{
     color: inherit;
 }
 
+
+input:-webkit-autofill 
+{    
+    -webkit-box-shadow: 0 0 0px 1000px #4D4B4D inset !important;
+    -webkit-text-fill-color: #FFF !important;
+}
+
 .notSelected {
     -webkit-touch-callout: none;  /* iPhone OS, Safari */
     -webkit-user-select: none;    /* Chrome, Safari 3 */

@@ -1,14 +1,10 @@
-import { Card, CardContent, CardHeader, Grid } from "@mui/material";
+import { Button, Card, CardContent, CardHeader, Grid } from "@mui/material";
 import { Component } from "react";
+import { useNavigate } from "react-router-dom";
 import { MuralModel } from "../../model/MuralModel";
 import MuralList from "../MuralList";
 import MuralModal from "../MuralModal";
 
-interface MuralCardProps {
-}
- 
-interface MuralCardState {
-}
 
 const listMural: Array<MuralModel> = [
     {
@@ -95,30 +91,33 @@ const listMural: Array<MuralModel> = [
     
 ]
 
-class MuralCard extends Component<MuralCardProps, MuralCardState> {
-    constructor(props: MuralCardProps) {
-        super(props);
+
+export const MuralCard = () => {
+
+    const navigate = useNavigate();
+
+    const redirectToShowMural = () =>{
+        return navigate('/showMural', {replace: true})
     }
 
-    render() { 
-        return (
-            <>
-                <Card className="notSelected" sx={{textAlign: 'center'}}>
-                    <CardHeader title="Mural" sx={{backgroundColor: '#4D4B4D'}}/>
-                    {listMural.length < 4 && 
-                        <Grid container textAlign="right" sx={{paddingBottom:'1.5rem'}}>
-                            <MuralModal isInsertModal={true}/>
-                        </Grid>
-                    }
-                    <CardContent>                        
-                        <Grid container direction="row" alignItems="center" justifyContent="center">
-                            <MuralList listMural={listMural}></MuralList>
-                        </Grid>
-                    </CardContent>
-                </Card>
-            </>
-        );
-    }
+    return (
+        <>
+            <Card className="notSelected" sx={{textAlign: 'center'}}>
+                <Grid container textAlign="right">
+                    <Button onClick={redirectToShowMural}  fullWidth color="warning" variant="contained" sx={{borderRadius:'0'}}><b>Go to Mural exibition</b></Button>
+                </Grid>
+                <CardHeader title="Mural" sx={{backgroundColor: '#4D4B4D'}}/>
+                {listMural.length < 4 && 
+                    <Grid container textAlign="right" sx={{paddingBottom:'1.5rem'}}>
+                        <MuralModal isInsertModal={true}/>
+                    </Grid>
+                }
+                <CardContent>                        
+                    <Grid container direction="row" alignItems="center" justifyContent="center">
+                        <MuralList listMural={listMural}></MuralList>
+                    </Grid>
+                </CardContent>
+            </Card>
+        </>
+    );
 }
- 
-export default MuralCard;

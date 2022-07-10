@@ -19,7 +19,7 @@ class Home extends Component<HomeProps, HomeState> {
     render() {
         return(
             <>
-                <Box sx={{ width: '100%', typography: 'body1' }}>
+                <Box className="notSelected" sx={{ width: '100%', typography: 'body1' }}>
                     <MenuComponent isAdmin={true}/>
                     <AppBar/>
                     <Toolbar/>

@@ -54,7 +54,7 @@ class MuralModal extends Component<MuralModalProps, MuralModalState> {
             <>
 
                 {/* INSERT BUTTON */}
-                {isInsertModal && <Button onClick={this.handleOpen}  fullWidth color="success" variant="contained" sx={{borderRadius:'0'}}>Insert New Mural</Button>}
+                {isInsertModal && <Button onClick={this.handleOpen}  fullWidth color="success" variant="contained" sx={{borderRadius:'0 0 4px 4px'}}>Insert New Mural</Button>}
                 
                 {/* EDIT BUTTON */}
                 {!isInsertModal && 

@@ -67,7 +67,7 @@ class VotingDataTable extends Component<VotingDataTableProps, VotingDataTableSta
 
     render() { 
         return (
-            <Box sx={{ height: 371, width: '100%' }}>
+            <Box className="notSelected" sx={{ height: 371, width: '100%' }}>
                 <DataGrid
                     rows={rows}
                     columns={columns}

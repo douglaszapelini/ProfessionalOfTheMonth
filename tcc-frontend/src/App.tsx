@@ -50,7 +50,7 @@ function App() {
                 <Route path="/user" element={<ProtectedRoute> <User/> </ProtectedRoute>} />
                 <Route path="/mural" element={<ProtectedRoute> <Mural/> </ProtectedRoute>} />
                 <Route path="/settings" element={<ProtectedRoute> <Settings/> </ProtectedRoute>} />
-                <Route path="/dashboard" element={<Dashboard/>} />
+                <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
                 <Route path="/showMural" element={ <ShowMural/> } />
 
                 <Route path="*" element={<Login/>} />

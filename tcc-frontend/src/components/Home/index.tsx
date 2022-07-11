@@ -145,7 +145,7 @@ class HomeCard extends Component <HomeCardProps, HomeCardState>{
     
     constructor(props: HomeCardProps) {
         super(props);
-        this.state = {voted: false, listParticipants: []}
+        this.state = {voted: true, listParticipants: []}
     }
 
     render() {
@@ -155,8 +155,7 @@ class HomeCard extends Component <HomeCardProps, HomeCardState>{
         return (
             <>
             {voted &&
-                <Container>
-                    <Grid container justifyContent='center' textAlign='center' sx={{marginBottom:'2rem'}}>
+                    <Grid container justifyContent='center' textAlign='center' sx={{marginBottom:'2rem', height: 'calc(100vh - 201px)'}}>
                         <Card sx={{width: '100%'}}>
                             <CardContent>
                                 <Typography variant='h3'>There isn't any voting avaible to you right now.</Typography>
@@ -164,7 +163,6 @@ class HomeCard extends Component <HomeCardProps, HomeCardState>{
                             </CardContent>
                         </Card>
                     </Grid>
-                </Container>
             }
 
             {!voted &&

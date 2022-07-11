@@ -1,12 +1,15 @@
 import { Visibility, VisibilityOff } from "@mui/icons-material";
 import { Avatar, Button, Card, CardContent, CardHeader, FormControl, FormControlLabel, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, styled, Switch, TextField } from "@mui/material";
 import { Component } from "react";
+import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
 interface UserFormProps {
 }
  
 interface UserFormState {
     showPassword: boolean;
+    profileImg: string | ArrayBuffer | null;
+    sendImage?: File;
 }
 
 const CssTextField = styled(TextField)({
@@ -33,18 +36,35 @@ const CssFormControl= styled(FormControl)({
   }
 );
 
-const imgDefault = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png';
 class UserForm extends Component<UserFormProps, UserFormState> {
     constructor(props: UserFormProps) {
         super(props);
-        this.state = { showPassword: false };
+        this.state = { showPassword: false, profileImg: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png' };
     }
 
     hundleShowPassword = () =>{
         this.setState({showPassword: !this.state.showPassword});
     }
 
+    teste =() =>{
+        console.log(this.state.sendImage)
+    }
+
+    imageHandler = (e : any) => {
+        const reader = new FileReader();
+        reader.onload = () =>{
+            if(reader.readyState === 2){
+                this.setState({profileImg: reader.result})
+            }
+        }
+        this.setState({sendImage: e.target.files[0]});
+        reader.readAsDataURL(e.target.files[0])
+    };
+
     render() { 
+
+        const {profileImg} = this.state;
+
         return (
             <Card className="notSelected" sx={{maxWidth: '1120px', textAlign: 'center'}}>
                 <CardHeader title={"User Profile"} sx={{backgroundColor: '#4D4B4D'}}/>
@@ -53,9 +73,25 @@ class UserForm extends Component<UserFormProps, UserFormState> {
                         <Grid item xs={8} sx={{paddingBottom: '0.8rem', display:'flex', justifyContent:'center'}}>
                             <Avatar
                                 alt="Remy Sharp"
-                                src={imgDefault}
+                                src={profileImg?.toString()}
                                 sx={{ width: 300, height: 300 }}
                             />
+                        </Grid>
+                        <Grid item xs={8} sx={{paddingBottom: '0.8rem', display:'flex', justifyContent:'center'}}>
+                        {/* Input Image */}
+                            <label htmlFor="input-file">
+                                <input type="file" name="input-file" style={{ display: 'none', }} id="input-file" accept="image/*" onChange={this.imageHandler}/>
+                                <Grid container>
+                                    <Button color="success" variant="contained" component="span" sx={{width:'100%'}}>
+                                        <Grid item>
+                                            <AddPhotoAlternateIcon/>
+                                        </Grid>
+                                        <Grid item sx={{paddingLeft:'0.5rem'}}>
+                                            change profile picture
+                                        </Grid>
+                                    </Button>
+                                </Grid>
+                            </label>
                         </Grid>
                         <Grid item xs={8} sx={{paddingBottom: '0.8rem'}}>
                             <CssTextField
@@ -92,13 +128,9 @@ class UserForm extends Component<UserFormProps, UserFormState> {
                                 variant="outlined"
                             />
                         </Grid>
-                        <Grid container alignItems="center" justifyContent="center" xs={10}>
-                            <Grid container direction="row" xs={5}>
-                                <Button sx={{marginLeft: '0.8rem'}} variant="contained" color="error">Back</Button>
-                            </Grid>
-                            <Grid container direction="row-reverse" xs={5}>
-                                <Button sx={{marginRight: '0.8rem'}} variant="contained" color="success">Save</Button>
-                            </Grid>
+                        <Grid item xs={8} sx={{display: 'flex', justifyContent: 'space-between'}}>
+                            <Button variant="contained" color="error">Back</Button>
+                            <Button onClick={this.teste}variant="contained" color="success">Save</Button>
                         </Grid>
                     </Grid>
                 </CardContent>

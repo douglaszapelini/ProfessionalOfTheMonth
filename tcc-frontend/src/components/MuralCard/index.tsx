@@ -11,6 +11,7 @@ const listMural: Array<MuralModel> = [
         id:1,
         name: 'Mural',
         enterpriseId: 1,
+        icUse: true,
         listMuralItem: [
             {
                 id: 1,
@@ -48,12 +49,14 @@ const listMural: Array<MuralModel> = [
     {
         id:3,
         name: 'Mural teste',
-        enterpriseId: 1
+        enterpriseId: 1,
+        icUse: false
     },
     {
         id:4,
         name: 'Mural teste',
         enterpriseId: 1,
+        icUse: false,
         listMuralItem: [
             {
                 id: 1,
@@ -112,11 +115,13 @@ export const MuralCard = () => {
                         <MuralModal isInsertModal={true}/>
                     </Grid>
                 }
-                <CardContent>                        
-                    <Grid container direction="row" alignItems="center" justifyContent="center">
-                        <MuralList listMural={listMural}></MuralList>
-                    </Grid>
-                </CardContent>
+                {listMural.length > 0 &&
+                    <CardContent>                        
+                        <Grid container direction="row" alignItems="center" justifyContent="center">
+                            <MuralList listMural={listMural}></MuralList>
+                        </Grid>
+                    </CardContent>
+                }
             </Card>
         </>
     );

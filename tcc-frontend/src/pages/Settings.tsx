@@ -1,7 +1,7 @@
 import { AppBar, Box, Card, CardContent, CardHeader, Container, Divider, FormControlLabel, Grid, Input, Slider, styled, Switch, TextField, Toolbar, Typography } from "@mui/material"
 import { useState } from "react";
 import FooterComponent from "../components/Footer"
-import MenuComponent from "../components/Menu"
+import {MenuComponent} from "../components/Menu"
 import { SettingsModel } from "../model/SettingsModel";
 
 const CssTextField = styled(TextField)({

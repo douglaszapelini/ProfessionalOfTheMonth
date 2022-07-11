@@ -1,12 +1,9 @@
 import { Box, Card, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
-import { Carousel } from "react-responsive-carousel";
+import Carousel from 'react-material-ui-carousel'
 import FooterComponent from "../components/Footer";
 import { ShowMuralItem } from "../components/ShowMuralItem/ShowMuralItem";
 import { MuralItemModel } from "../model/MuralItemModel";
 import { MuralModel } from "../model/MuralModel";
-
-import 'react-responsive-carousel/lib/styles/carousel.css';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 
 const mural: MuralModel = {
     id:1,
@@ -16,7 +13,7 @@ const mural: MuralModel = {
         {
             id: 1,
             title: 'CARD 01',
-            description: 'treste \n asasdasdasdaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa',
+            description: '',
             sequence: 1,
             muralId: 1,
             srcImage: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png'
@@ -54,20 +51,19 @@ export const ShowMural = () => {
     return (
         <>
             <Box sx={{ typography: 'body1', height: 'calc(100vh - 41px)', overflow:'hidden'}}>
-                <Container sx={{marginTop: '2%', paddingBottom: '3rem'}} >
+                <Container sx={{marginTop: '2rem', paddingBottom: '3rem'}} >
                     <Grid container justifyContent='center'>
-
+                        
                         {!!listCards &&
                             <Carousel 
-                                showArrows={false} 
-                                showStatus={false} 
-                                transitionTime={800} 
-                                showThumbs={false}
-                                showIndicators={true} 
-                                infiniteLoop={true} 
-                                dynamicHeight={false} 
-                                autoPlay={true} 
-                                interval={2000}
+                                autoPlay={true}
+                                interval={4000} 
+                                swipe={false} 
+                                duration={500} 
+                                navButtonsAlwaysInvisible={true} 
+                                indicators={true} 
+                                animation="slide" 
+                                sx={{width:'1100px'}}
                             >
                                 {listCards.map(card =>{
                                     return(
@@ -76,7 +72,6 @@ export const ShowMural = () => {
                                 })}
                             </Carousel>
                         }
-
                         {!listCards &&
                             <Card sx={{width: '100%'}}>
                                 <CardContent>

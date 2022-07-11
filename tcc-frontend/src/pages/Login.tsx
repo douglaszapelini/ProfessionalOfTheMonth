@@ -1,4 +1,4 @@
-import {Alert, Box, Button, Card, CardContent, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, Slide, Snackbar, styled, 
+import {Alert, Box, Button, Card, CardContent, FormControl, Grid, IconButton, InputAdornment, InputLabel, makeStyles, OutlinedInput, Slide, Snackbar, styled, 
         TextField, 
         Typography,
         Zoom} from "@mui/material";
@@ -18,6 +18,7 @@ const CssTextField = styled(TextField)({
         borderColor: 'white',
       },
     },
+    
   });
 
 const CssFormControl= styled(FormControl)({
@@ -31,6 +32,7 @@ const CssFormControl= styled(FormControl)({
     },
   }
 );
+
 
 export const Login = () => {
 
@@ -107,7 +109,6 @@ export const Login = () => {
                                             id="email-input"
                                             fullWidth
                                             required
-                                            autoComplete="TESTE"
                                             label="Email"
                                         />
                                     </Grid>

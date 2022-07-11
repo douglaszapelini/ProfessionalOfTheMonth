@@ -16,6 +16,7 @@ import {ProtectedRoute} from './components/ProtectedRoute';
 import { AuthProvider } from './context';
 import { Settings } from './pages/Settings'
 import { ShowMural } from './pages/ShowMural';
+import { Dashboard } from './pages/Dashboard';
 
 function App() {
 
@@ -42,14 +43,15 @@ function App() {
             <CssBaseline/>
               <Routes>
                 <Route path="/" element={<ProtectedRoute> <Home/> </ProtectedRoute>} />
-                <Route path="/profile" element={<ProtectedRoute> <Profile/> </ProtectedRoute>} />
+                <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>} />
                 <Route path="/login" element={<Login />} />
                 <Route path="/signup" element={<Signup />} />
                 <Route path="/voting" element={<ProtectedRoute> <Voting/> </ProtectedRoute>} />
                 <Route path="/user" element={<ProtectedRoute> <User/> </ProtectedRoute>} />
                 <Route path="/mural" element={<ProtectedRoute> <Mural/> </ProtectedRoute>} />
-                <Route path="/settings" element={ <Settings  /> } />
-                <Route path="/showMural" element={ <ShowMural  /> } />
+                <Route path="/settings" element={<ProtectedRoute> <Settings/> </ProtectedRoute>} />
+                <Route path="/dashboard" element={<Dashboard/>} />
+                <Route path="/showMural" element={ <ShowMural/> } />
 
                 <Route path="*" element={<Login/>} />
               </Routes>

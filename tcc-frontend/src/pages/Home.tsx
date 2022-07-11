@@ -2,7 +2,7 @@ import { AppBar, Box, Toolbar } from "@mui/material";
 import { Component } from "react";
 import FooterComponent from "../components/Footer";
 import HomeCard from "../components/Home";
-import MenuComponent from "../components/Menu";
+import {MenuComponent} from "../components/Menu";
 
 interface HomeProps {
 }

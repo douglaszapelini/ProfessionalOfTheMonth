@@ -1,19 +1,22 @@
 import { createContext, useEffect, useState} from "react";
 import { IAuthProvider, IContext, IUser } from "./types";
-import { getUserLocalStorage, LoginRequest, setUserLocalStorage } from "./util";
+import { getUserLocalStorage, LoginRequest, removeUserLocalStorage, setUserLocalStorage } from "./util";
 
 export const AuthContext = createContext<IContext>({} as IContext);
 
 export const AuthProvider = ({children}: IAuthProvider) => {
     
     const [user, setUser] = useState<IUser | null>();
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         const user = getUserLocalStorage();
 
-        if(user){
+        if(!!user){
             setUser(user);
         }
+
+        setLoading(false);
     }, [])
 
     async function authenticate(email: string, password: string){
@@ -29,11 +32,11 @@ export const AuthProvider = ({children}: IAuthProvider) => {
 
     async function logout(){
         setUser(null);
-        setUserLocalStorage(null);
+        removeUserLocalStorage();
     }
 
     return(
-        <AuthContext.Provider value={{...user,authenticate,logout}}>
+        <AuthContext.Provider value={{...user,authenticate,logout, loading}}>
             {children}
         </AuthContext.Provider>
     )

@@ -16,16 +16,15 @@ export const ShowMuralItem = (props: ShowMuralItemProps) => {
                 <Card 
                     sx={{ 
                           width:'1100px', 
-                          marginTop: '1rem',
                           backgroundColor: '#808080', 
                           border: '1px solid black',
                         }}
                 >
                     <CardContent sx={{width: '1100px', height: '870px'}}>
                         {/* CARD TITLE*/}
-                        <Grid sx={{backgroundColor: '#373737', borderRadius:'4px 4px 0 0'}}>
+                        <Grid container justifyContent='center' sx={{backgroundColor: '#373737', borderRadius:'4px 4px 0 0'}}>
                             <Typography variant="h2">
-                                {card.title}
+                                <b>{card.title}</b>
                             </Typography>
                         </Grid>
                         {!!card.srcImage &&
@@ -42,8 +41,8 @@ export const ShowMuralItem = (props: ShowMuralItemProps) => {
                                     <Grid item >
                                         <EmojiEventsTwoToneIcon color="warning" sx={{fontSize:"3rem"}}/> 
                                     </Grid>
-                                    <Grid item xs={8}>
-                                        <Typography variant="h5">
+                                    <Grid item xs={4}>
+                                        <Typography variant="h5" sx={{textAlign: 'center'}}>
                                             <b>Professional of the Month</b>
                                         </Typography>
                                     </Grid>
@@ -59,11 +58,13 @@ export const ShowMuralItem = (props: ShowMuralItemProps) => {
                             </>
                         }
                     {/* CARD DESCRIPTION*/}
-                        <Grid sx={{backgroundColor: '#696969', padding: '0.8rem', maxWidth: '1100px'}}>
-                            <Typography variant="h4" color="text.secondary" sx={{display:'block', maxWidth: '1100px'}}>
+                    {!!card.description &&
+                        <Grid sx={{backgroundColor: '#696969', padding: '0.8rem', maxWidth: '1100px',height:'auto'}}>
+                            <Typography variant="h4" color="text.secondary" sx={{ height:'auto', width: '1100px', textAlign: 'center'}}>
                                 {card.description}
                             </Typography>
                         </Grid>
+                    }
                     </CardContent>
                     
                 </Card>

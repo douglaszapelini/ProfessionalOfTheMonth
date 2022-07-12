@@ -1,4 +1,4 @@
-import { AppBar, Box, Card, CardContent, CardHeader, Container, Divider, FormControlLabel, Grid, Input, Slider, styled, Switch, TextField, Toolbar, Typography } from "@mui/material"
+import { AppBar, Box, Button, Card, CardContent, CardHeader, Container, Divider, FormControlLabel, Grid, Input, Slider, styled, Switch, TextField, Toolbar, Typography } from "@mui/material"
 import { useState } from "react";
 import FooterComponent from "../components/Footer"
 import {MenuComponent} from "../components/Menu"
@@ -41,6 +41,7 @@ export const Settings = () => {
 
     const handleSendEmailFinishedVoting = () => {
         setIsSendEmailFinishedVoting(!isSendEmailFinishedVoting);
+        setIsShowWinner(false);
     }
 
     const handleShowWinner = () => {
@@ -131,7 +132,7 @@ export const Settings = () => {
                                     <Grid item>
                                         <FormControlLabel
                                             value="isSendEmailInsertVoting"
-                                            control={<Switch color="success" defaultChecked={isSendEmailInsertVoting}/>}
+                                            control={<Switch color="success" checked={isSendEmailInsertVoting}/>}
                                             label="Send email to all participants when insert new voting?"
                                             onChange={handleSendEmailInsertVoting}
                                             labelPlacement="end"
@@ -142,7 +143,7 @@ export const Settings = () => {
                                     <Grid item>
                                         <FormControlLabel
                                             value="isSendEmailFinishedVoting"
-                                            control={<Switch color="success" defaultChecked={isSendEmailFinishedVoting} />}
+                                            control={<Switch color="success" checked={isSendEmailFinishedVoting} />}
                                             label="Send email to all participants when finished a voting?"
                                             onChange={handleSendEmailFinishedVoting}
                                             labelPlacement="end"
@@ -153,11 +154,17 @@ export const Settings = () => {
                                     <Grid item>
                                         <FormControlLabel
                                             value="isShowWinner"
-                                            control={<Switch color="success" defaultChecked={isShowWinner} disabled={!isSendEmailFinishedVoting}/>}
+                                            control={<Switch color="success" checked={isShowWinner} disabled={!isSendEmailFinishedVoting}/>}
                                             label="Show voting winner on email?"
                                             onChange={handleShowWinner}
                                             labelPlacement="end"
                                         />
+                                    </Grid>
+                                </Grid>
+                                <Grid container justifyContent= 'center'  alignItems='center' sx={{marginTop: '1rem'}}>
+                                    <Grid item xs={8} sx={{display: 'flex', justifyContent: 'space-between'}}>
+                                        <Button variant="contained" color="error">Back</Button>
+                                        <Button variant="contained" color="success">Save</Button>
                                     </Grid>
                                 </Grid>
                             </form>

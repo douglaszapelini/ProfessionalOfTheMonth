@@ -1,4 +1,4 @@
-import { Card, CardContent, CardHeader, FormControl, Grid, styled, TextField } from "@mui/material";
+import { Box, Card, CardContent, CardHeader, FormControl, Grid, styled, TextField } from "@mui/material";
 import { Component } from "react";
 import DataTableUser from "../UserDataTable";
 import UserInsertModal from "../UserInsertModal";
@@ -41,17 +41,17 @@ class UserCard extends Component<UserCardProps, UserCardState> {
 
     render() { 
         return (
-            <>
-                <Card className="notSelected" sx={{maxWidth: '1120px', textAlign: 'center'}}>
-                    <CardHeader title="Users" sx={{backgroundColor: '#4D4B4D'}}/>
-                    <UserInsertModal/>
-                    <CardContent>                        
-                        <Grid container direction="row" alignItems="center" justifyContent="center">
-                            <DataTableUser/>
-                        </Grid>
-                    </CardContent>
-                </Card>
-            </>
+          <Box sx={{ width: '92rem'}}>
+            <Card className="notSelected" sx={{ textAlign: 'center'}}>
+                <CardHeader title="Users" sx={{backgroundColor: '#4D4B4D'}}/>
+                <UserInsertModal/>
+                <CardContent>                        
+                    <Grid container direction="row" alignItems="center" justifyContent="center">
+                        <DataTableUser/>
+                    </Grid>
+                </CardContent>
+            </Card>
+          </Box>
         );
     }
 }

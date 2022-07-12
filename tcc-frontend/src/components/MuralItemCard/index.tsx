@@ -2,6 +2,7 @@ import { Card, CardContent, CardMedia, Grid, Typography } from "@mui/material";
 import { Component } from "react";
 import { DragDropContext, Draggable, Droppable, DropResult } from "react-beautiful-dnd"
 import { MuralItemModel } from "../../model/MuralItemModel";
+import { DeleteModal } from "../DeleteModal";
 import MuralItemModal from "../MuralItemModal";
 
 
@@ -76,6 +77,10 @@ class MuralItemCard extends Component<MuralItemCardProps, MuralItemCardState> {
                                 {/* EDIT BUTTON */}
                                 <Grid textAlign="center" sx={{backgroundColor: '#373737'}}>
                                   <MuralItemModal isInsertModal={false} muralItem={muralItem}/>
+                                </Grid>
+                                {/* DELETE BUTTON */}
+                                <Grid textAlign="center" sx={{backgroundColor: '#373737', borderRadius:'0 0 4px 4px'}}>
+                                  <DeleteModal item="Card"/>
                                 </Grid>
                               </CardContent>
                           </Card>

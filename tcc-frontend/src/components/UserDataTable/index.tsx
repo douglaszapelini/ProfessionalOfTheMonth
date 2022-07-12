@@ -1,4 +1,4 @@
-import { Box } from "@mui/material";
+import { Avatar, Box, Button } from "@mui/material";
 import { Component } from "react";
 import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
 
@@ -12,52 +12,81 @@ interface UserDataTableState {
  
 
 const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 90, hideable:false, editable: false},
-    {
-      field: 'firstName',
-      headerName: 'First name',
-      width: 150,
-      hideable:false,
-      editable: false,
-    },
-    {
-      field: 'lastName',
-      headerName: 'Last name',
-      width: 150,
-      hideable:false,
-      editable: false,
-    },
-    {
-      field: 'age',
-      headerName: 'Age',
-      type: 'number',
-      width: 110,
-      hideable:false,
-      editable: false,
-    },
-    {
-      field: 'fullName',
-      headerName: 'Full name',
-      description: 'This column has a value getter and is not sortable.',
-      sortable: false,
-      width: 160,
-      hideable:false,
-      valueGetter: (params: GridValueGetterParams) =>
-        `${params.row.firstName || ''} ${params.row.lastName || ''}`,
-    },
-  ];
+  {
+    field: 'name',
+    headerName: 'Name',
+    width: 300,
+    hideable:false,
+    editable: false,
+  },
+  {
+    field: 'email',
+    headerName: 'Email',
+    width: 300,
+    hideable:false,
+    editable: false,
+  },
+  {
+    field: 'office',
+    headerName: 'Office',
+    width: 300,
+    hideable:false,
+    editable: false,
+  },
+  {
+    field: 'isAdmin',
+    headerName: 'Admin?',
+    type: 'boolean',
+    hideable:false,
+    editable: false,
+  },
+  {
+    field: 'isUse',
+    headerName: 'Active?',
+    type: 'boolean',
+    hideable:false,
+    editable: false,
+  },
+  {
+    field: 'isEligible',
+    headerName: 'Eligible?',
+    type: 'boolean',
+    hideable:false,
+    editable: false,
+  },
+  {
+    field: 'isElect',
+    headerName: 'Elect?',
+    type: 'boolean',
+    hideable:false,
+    editable: false,
+  },
+  {
+    field: 'edit',
+    type: 'actions',
+    sortable: false,
+    hideable:false,
+    filterable: false,
+    disableColumnMenu: true,
+    hideSortIcons: false,
+    renderCell:(params) =>{
+      return <Button color="warning" variant="contained">edit</Button>
+    }
+  },
+];
   
-  const rows = [
-    { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-    { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-    { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-    { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-    { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-    { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-    { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-    { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-    { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-  ];
+const rows = [
+  { id: 1, name: 'Jon', email: 'jon@gmail.com', office:'Desenvolvedor'},
+  { id: 2, name: 'Douglas de Souza Zapelini', email: 'douglas@logpro.com', office:'Desenvolvedor Fullstack Junior', isAdmin: true, isEligible: true},
+  { id: 3, name: 'Jaime',  },
+  { id: 4, name: 'Arya',  },
+  { id: 5, name: 'Daenerys',  },
+  { id: 6, name: null,  },
+  { id: 7, name: 'Ferrara',  },
+  { id: 8, name: 'Rossini',  },
+  { id: 9, name: 'Harvey',  },
+  { id: 10, name: 'Douglas de Souza Zapelini', email: 'douglas@logpro.com', office:'Desenvolvedor Fullstack Junior', isAdmin: true, isEligible: true},
+];
 
 class UserDataTable extends Component<UserDataTableProps, UserDataTableState> {
     constructor(props: UserDataTableProps) {
@@ -67,13 +96,14 @@ class UserDataTable extends Component<UserDataTableProps, UserDataTableState> {
 
     render() { 
         return (
-            <Box sx={{ height: 371, width: '100%' }}>
+            <Box sx={{ height: '39.5rem', width: '100%' }}>
                 <DataGrid
                     rows={rows}
                     columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5]}
+                    pageSize={10}
+                    rowsPerPageOptions={[8]}
                     disableSelectionOnClick
+                    disableColumnSelector
                 />
             </Box>
         );

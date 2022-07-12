@@ -1,7 +1,7 @@
 import { Box, Card, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
 import FooterComponent from "../components/Footer";
-import { ShowMuralItem } from "../components/ShowMuralItem/ShowMuralItem";
+import { ShowMuralItem } from "../components/ShowMuralItem";
 import { MuralItemModel } from "../model/MuralItemModel";
 import { MuralModel } from "../model/MuralModel";
 
@@ -9,6 +9,7 @@ const mural: MuralModel = {
     id:1,
     name: 'Mural',
     enterpriseId: 1,
+    icUse: true,
     listMuralItem: [
         {
             id: 1,

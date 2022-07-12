@@ -72,7 +72,7 @@ class MuralItemModal extends Component<MuralItemModalProps, MuralItemModalState>
                 {/* Button Insert */}
                 {isInsertModal &&
                     <Tooltip title="Add New Card">
-                        <Button onClick={this.handleOpen} variant="contained" fullWidth color="success" sx={{borderRadius:'0 0 4px 4px '}}>
+                        <Button onClick={this.handleOpen} variant="contained" fullWidth color="success" sx={{borderRadius:'0'}}>
                             <AddBoxIcon/>
                         </Button>
                     </Tooltip>

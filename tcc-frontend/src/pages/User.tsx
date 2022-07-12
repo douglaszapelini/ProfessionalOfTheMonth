@@ -1,4 +1,4 @@
-import { AppBar, Box, Container, Toolbar } from "@mui/material";
+import { AppBar, Box, Container, Grid, Toolbar } from "@mui/material";
 import { Component } from "react";
 import FooterComponent from "../components/Footer";
 import {MenuComponent} from "../components/Menu";
@@ -20,13 +20,17 @@ class Voting extends Component<VotingProps, VotingState> {
     render() { 
         return (
             <>
-                <Box sx={{ width: '100%', typography: 'body1', height: 'calc(100vh - 41px)' }}>
+                <Box sx={{typography: 'body1', height: 'calc(100vh - 41px)' }}>
                     <MenuComponent isAdmin={true}/>
                     <AppBar/>
                     <Toolbar/>
-                    <Container fixed sx={{marginTop: '2%'}}>
+                    <Grid
+                        container
+                        justifyContent="center"
+                        sx={{marginTop:'2%'}}
+                    >
                         <UserCard></UserCard>
-                    </Container>
+                    </Grid>
                 </Box>
                 <FooterComponent/>
             </>

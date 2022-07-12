@@ -1,6 +1,7 @@
 import { Card, CardContent, FormControl, FormControlLabel, Grid, Radio, RadioGroup, Tooltip, Typography } from "@mui/material";
 import { Component } from "react";
 import { MuralModel } from "../../model/MuralModel";
+import { DeleteModal } from "../DeleteModal";
 import MuralItemCard from "../MuralItemCard";
 import MuralItemModal from "../MuralItemModal";
 import MuralModal from "../MuralModal";
@@ -67,10 +68,15 @@ class MuralList extends Component<MuralListProps, MuralListState> {
                                                     <MuralItemModal isInsertModal={true}/>
                                                 </Grid>
                                             </Grid>
+                                            {/* DELETE BUTTON */}
+                                            <Grid item xs={12}  sx={{width:'100%'}}>
+                                                <DeleteModal item="Mural"></DeleteModal>
+                                            </Grid>
                                             {/* CARD ITEMS */}
                                             {!!mural.listMuralItem &&
                                                 <MuralItemCard listMuralItem={mural.listMuralItem} />
                                             }
+                                            
                                         </CardContent>
                                     </Card>
                                 </Grid>

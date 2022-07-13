@@ -1,12 +1,14 @@
-import { Box, Button, Container, FormControlLabel, Grid, Modal, styled, Switch, TextField } from "@mui/material";
+import { Box, Button, FormControlLabel, Grid, Modal, styled, Switch, TextField } from "@mui/material";
 import { Component } from "react";
+import { UserModel } from "../../model/UserModel";
+import EditIcon from '@mui/icons-material/Edit';
 
-interface UserInsertModalProps {
-    
+interface UserModalProps {
+    user?: UserModel;
 }
  
-interface UserInsertModalState {
-    showModalInsert: boolean
+interface UserModalState {
+    showModal: boolean
 }
 
 
@@ -34,30 +36,37 @@ const CssTextField = styled(TextField)({
   }
 );
  
-class UserInsertModal extends Component<UserInsertModalProps, UserInsertModalState> {
-    constructor(props: UserInsertModalProps) {
+class UserModal extends Component<UserModalProps, UserModalState> {
+    constructor(props: UserModalProps) {
         super(props);
-        this.state = { showModalInsert: false };
+        this.state = { showModal: false };
     }
 
-    handleOpen = () => this.setState({showModalInsert: true});
-    handleClose = () => this.setState({showModalInsert: false});
+    handleOpen = () => this.setState({showModal: true});
+    handleClose = () => this.setState({showModal: false});
     
     render() { 
+
+        const { user } = this.props;
+        const isUpdate = !!user;
+
         return (
-            <>
-                <Button onClick={this.handleOpen} color="success" sx={{borderRadius:'0 0 4px 4px'}} fullWidth variant="contained">Insert New User</Button>
+            <>  
+                {isUpdate && <Button color= 'warning' onClick={this.handleOpen}  size="small"variant="outlined"><EditIcon/></Button>}
+                {!isUpdate && <Button onClick={this.handleOpen} color="success" sx={{borderRadius:'0 0 4px 4px'}} fullWidth variant="contained">Insert New User</Button>}
                 <Modal
-                    open={this.state.showModalInsert}
+                    open={this.state.showModal}
                     onClose={this.handleClose}
                 >
                     <Box sx={{ ...style, width: 400 }}>
                         <Grid container item>
                             <Grid item xs={12}textAlign="center" sx={{margin: '0'}}>
-                                <h1>Insert User</h1>
+                                {!isUpdate &&  <h1>Insert User</h1>}
+                                {isUpdate &&  <h1>Edit User</h1>}
                             </Grid>
                             <Grid item sx={{paddingBottom:'0.5rem'}}>
-                                <p>Fill in the field to insert a new User...</p>
+                                {!isUpdate &&  <p>Fill in the field to insert a new User...</p>}
+                                {!isUpdate &&  <p>Fill in the field to update User...</p>}
                             </Grid>
                             <Grid item textAlign="center" xs={12} sx={{paddingBottom:'0.8rem'}}>
                                 <CssTextField
@@ -65,6 +74,7 @@ class UserInsertModal extends Component<UserInsertModalProps, UserInsertModalSta
                                     required
                                     id="name-input"
                                     label="Name"
+                                    defaultValue={isUpdate && !!user ? user.name : ""}
                                     variant="outlined"
                                 />
                             </Grid>
@@ -74,6 +84,7 @@ class UserInsertModal extends Component<UserInsertModalProps, UserInsertModalSta
                                     required
                                     id="email-input"
                                     label="Email"
+                                    defaultValue={isUpdate && !!user ? user.email : ""}
                                     variant="outlined"
                                 />
                             </Grid>
@@ -82,26 +93,33 @@ class UserInsertModal extends Component<UserInsertModalProps, UserInsertModalSta
                                     fullWidth
                                     id="office-input"
                                     label="Office"
+                                    defaultValue={isUpdate && !!user ? user.office : ""}
                                     variant="outlined"
                                 />
                             </Grid>
                             <Grid item xs={12} sx={{paddingLeft: '3rem'}} >
                                 <FormControlLabel
                                     value="isAdmin"
-                                    control={<Switch color="success" />}
+                                    control={<Switch color="success" checked={isUpdate && !!user ? user.icAdmin : false} />}
                                     label="Is Administrator?"
                                     labelPlacement="end"
                                 />
                                 <FormControlLabel
+                                    value="isUse"
+                                    control={<Switch color="success" checked={isUpdate && !!user ? user.icUse : true} />}
+                                    label="Active?"
+                                    labelPlacement="end"
+                                />
+                                <FormControlLabel
                                     value="isEligible"
-                                    control={<Switch color="success"/>}
+                                    control={<Switch color="success" checked={isUpdate && !!user ? user.icEligible : false}/>}
                                     label="Can the employee vote?"
                                     labelPlacement="end"
                                     sx={{paddingRight:'3rem'}}
                                 />
                                 <FormControlLabel
                                     value="isElection"
-                                    control={<Switch color="success" />}
+                                    control={<Switch color="success" checked={isUpdate && !!user ? user.icElection : false} />}
                                     label="Participe in the votation?"
                                     labelPlacement="end"
                                 />
@@ -126,4 +144,4 @@ class UserInsertModal extends Component<UserInsertModalProps, UserInsertModalSta
     }
 }
  
-export default UserInsertModal;
+export default UserModal;

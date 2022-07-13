@@ -7,7 +7,7 @@ import {Login} from './pages/Login';
 import Voting from './pages/Voting';
 import Mural from './pages/Mural';
 import Signup from './pages/Signup';
-import User from './pages/User';
+import {User} from './pages/User';
 
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import {LocalizationProvider} from '@mui/lab';
@@ -42,6 +42,7 @@ function App() {
           <LocalizationProvider dateAdapter={AdapterDateFns}>
             <CssBaseline/>
               <Routes>
+                
                 <Route path="/" element={<ProtectedRoute> <Home/> </ProtectedRoute>} />
                 <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>} />
                 <Route path="/login" element={<Login />} />

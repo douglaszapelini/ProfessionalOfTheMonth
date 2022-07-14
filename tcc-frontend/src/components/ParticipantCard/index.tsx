@@ -1,4 +1,4 @@
-import { Avatar, Box, Button, Card, CardContent, CardHeader, CardMedia, FormControlLabel, Grid, Radio, Typography } from '@mui/material';
+import { Avatar, Box, Card, CardContent, Grid, Typography } from '@mui/material';
 import { Component } from 'react';
 import { ParticipantsCardModel } from '../../model/ParticipantsCardModel';
 import VoteModal from '../VoteModal';

@@ -1,6 +1,6 @@
 import { Box, Card, CardContent, CardHeader, Grid } from "@mui/material";
 import {UserDataTable} from "../UserDataTable";
-import UserModal from "../UserModal";
+import {UserModal} from "../UserModal";
 
 export const UserCard = () => {
   return (

@@ -1,8 +1,7 @@
-import { Box, Button, IconButton } from "@mui/material";
+import { Box } from "@mui/material";
 import { DataGrid, GridColDef } from '@mui/x-data-grid';
-import EditIcon from '@mui/icons-material/Edit';
 import { useState } from "react";
-import UserModal from "../UserModal";
+import {UserModal} from "../UserModal";
 import { UserModel } from "../../model/UserModel";
 
 const columns: GridColDef[] = [

@@ -2,7 +2,7 @@ import { AppBar, Box, Container, Toolbar } from "@mui/material";
 import { Component } from "react";
 import FooterComponent from "../components/Footer";
 import {MenuComponent} from "../components/Menu";
-import {MuralCard} from "../components/MuralCard";
+import {MuralContainer} from "../components/MuralContainer";
 
 interface MuralProps {
     
@@ -24,7 +24,7 @@ class Mural extends Component<MuralProps, MuralState> {
                 <AppBar/>
                 <Toolbar/>
                 <Container sx={{marginTop: '2%', paddingBottom: '3rem'}}>
-                    <MuralCard></MuralCard>
+                    <MuralContainer></MuralContainer>
                 </Container>
                 <FooterComponent/>
             </Box>

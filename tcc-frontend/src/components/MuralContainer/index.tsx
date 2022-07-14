@@ -1,5 +1,4 @@
 import { Button, Card, CardContent, CardHeader, Grid } from "@mui/material";
-import { Component } from "react";
 import { useNavigate } from "react-router-dom";
 import { MuralModel } from "../../model/MuralModel";
 import MuralList from "../MuralList";
@@ -95,7 +94,7 @@ const listMural: Array<MuralModel> = [
 ]
 
 
-export const MuralCard = () => {
+export const MuralContainer = () => {
 
     const navigate = useNavigate();
 

@@ -1,4 +1,4 @@
-import { Box, Card, CardContent, CardMedia, Container, Grid, Typography } from "@mui/material";
+import { Box, Card, CardContent, Container, Grid, Typography } from "@mui/material";
 import Carousel from 'react-material-ui-carousel'
 import FooterComponent from "../components/Footer";
 import { ShowMuralItem } from "../components/ShowMuralItem";

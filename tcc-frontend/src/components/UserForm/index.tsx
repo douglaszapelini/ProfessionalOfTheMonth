@@ -1,5 +1,4 @@
-import { Visibility, VisibilityOff } from "@mui/icons-material";
-import { Avatar, Button, Card, CardContent, CardHeader, FormControl, FormControlLabel, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, styled, Switch, TextField } from "@mui/material";
+import { Avatar, Button, Card, CardContent, CardHeader, FormControl, Grid, styled, TextField } from "@mui/material";
 import { Component } from "react";
 import AddPhotoAlternateIcon from '@mui/icons-material/AddPhotoAlternate';
 
@@ -102,27 +101,8 @@ class UserForm extends Component<UserFormProps, UserFormState> {
                             />
                         </Grid>
                         <Grid item xs={8} sx={{paddingBottom: '0.8rem'}}>
-                            <CssFormControl sx={{ width: '40%', marginRight:'2%' }} variant="outlined">
-                                <InputLabel htmlFor="outlined-adornment-password">Password</InputLabel>
-                                <OutlinedInput
-                                    id="password-input"
-                                    type={this.state.showPassword ? 'text' : 'password'}
-                                    autoComplete="current-password"
-                                    endAdornment={
-                                        <InputAdornment position="end">
-                                        <IconButton
-                                            onClick={this.hundleShowPassword}
-                                            edge="end"
-                                        >
-                                            {this.state.showPassword ? <VisibilityOff /> : <Visibility />}
-                                        </IconButton>
-                                        </InputAdornment>
-                                    }
-                                    label="Password"
-                                />
-                            </CssFormControl>
                             <CssTextField
-                                sx={{ width: '58%'}}
+                                fullWidth
                                 id="office-input"
                                 label="Office"
                                 variant="outlined"

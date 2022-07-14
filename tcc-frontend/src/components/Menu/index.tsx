@@ -1,4 +1,4 @@
-import { Component, useState } from "react";
+import { useState } from "react";
 import LogoutIcon from '@mui/icons-material/Logout';
 import FaceIcon from '@mui/icons-material/Face';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -14,10 +14,6 @@ import { useAuth } from "../../context/useAuth";
 
 interface MenuComponentProps {
     isAdmin: boolean;
-}
- 
-interface MenuComponentState {
-    anchorElAvatar: null | HTMLElement;
 }
  
 export const MenuComponent = (props: MenuComponentProps) => {

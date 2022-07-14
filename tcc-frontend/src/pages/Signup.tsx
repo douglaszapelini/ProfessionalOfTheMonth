@@ -1,9 +1,6 @@
-import {Box, Button, Card, CardContent, FormControl, Grid, IconButton, InputAdornment, InputLabel, OutlinedInput, styled, 
-        TextField, 
-        Typography} from "@mui/material";
+import {Box, Button, Card, CardContent, FormControl, Grid, styled, TextField, Typography} from "@mui/material";
 import { Component } from "react";
 import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
-import { Visibility, VisibilityOff } from "@mui/icons-material";
 import FooterComponent from "../components/Footer";
 import { Link } from "react-router-dom";
 

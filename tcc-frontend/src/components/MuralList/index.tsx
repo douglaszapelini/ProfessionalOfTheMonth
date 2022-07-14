@@ -1,4 +1,4 @@
-import { Card, CardContent, FormControl, FormControlLabel, Grid, Radio, RadioGroup, Tooltip, Typography } from "@mui/material";
+import { Card, CardContent, FormControl, FormControlLabel, Grid, Radio, RadioGroup, Typography } from "@mui/material";
 import { Component } from "react";
 import { MuralModel } from "../../model/MuralModel";
 import { DeleteModal } from "../DeleteModal";

@@ -2,7 +2,7 @@ import { AppBar, Box, Container, Toolbar } from "@mui/material";
 import { Component } from "react";
 import FooterComponent from "../components/Footer";
 import {MenuComponent} from "../components/Menu";
-import VotingCard from "../components/VotingCard";
+import VotingContainer from "../components/VotingContainer";
 
 interface VotingProps {
     
@@ -25,7 +25,7 @@ class Voting extends Component<VotingProps, VotingState> {
                     <AppBar/>
                     <Toolbar/>
                     <Container sx={{marginTop: '2%'}}>
-                        <VotingCard></VotingCard>
+                        <VotingContainer></VotingContainer>
                     </Container>
                 </Box>
                 <FooterComponent/>

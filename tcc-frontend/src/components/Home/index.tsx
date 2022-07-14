@@ -1,7 +1,6 @@
-import { Avatar, Box, Card, CardContent, CardHeader, CardMedia, Container, Grid, Radio, Typography } from '@mui/material';
+import { Card, CardContent, CardHeader, Grid, Typography } from '@mui/material';
 import { Component } from 'react';
 import { ParticipantsCardModel } from '../../model/ParticipantsCardModel';
-import { pink } from '@mui/material/colors';
 
 import ParticipantCard from '../ParticipantCard';
 
@@ -12,12 +11,6 @@ interface HomeCardState {
     listParticipants: Array<ParticipantsCardModel>;
     voted: boolean;
 }
-
-// id: number;
-//     votingId: number;
-//     userId: number;
-//     voted: boolean;
-//     participant: boolean;
 
 const list: Array<ParticipantsCardModel> = [
     {
@@ -145,7 +138,7 @@ class HomeCard extends Component <HomeCardProps, HomeCardState>{
     
     constructor(props: HomeCardProps) {
         super(props);
-        this.state = {voted: true, listParticipants: []}
+        this.state = {voted: false, listParticipants: []}
     }
 
     render() {

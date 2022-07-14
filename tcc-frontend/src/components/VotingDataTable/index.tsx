@@ -1,6 +1,6 @@
 import { Box } from "@mui/material";
 import { Component } from "react";
-import { DataGrid, GridColDef, GridValueGetterParams } from '@mui/x-data-grid';
+import { DataGrid, GridColDef } from '@mui/x-data-grid';
 
 interface VotingDataTableProps {
     
@@ -12,38 +12,44 @@ interface VotingDataTableState {
  
 
 const columns: GridColDef[] = [
-    { field: 'id', headerName: 'ID', width: 90, hideable:false, editable: false},
     {
-      field: 'firstName',
-      headerName: 'First name',
-      width: 150,
+      field: 'isYearVoting',
+      headerName: 'Is Year Voting?',
+      type: 'boolean',
       hideable:false,
       editable: false,
-    },
-    {
-      field: 'lastName',
-      headerName: 'Last name',
       width: 150,
-      hideable:false,
-      editable: false,
     },
     {
-      field: 'age',
-      headerName: 'Age',
+      field: 'yearMonth',
+      headerName: 'Month/Year',
       type: 'number',
-      width: 110,
       hideable:false,
       editable: false,
+      width: 150,
     },
     {
-      field: 'fullName',
-      headerName: 'Full name',
-      description: 'This column has a value getter and is not sortable.',
-      sortable: false,
-      width: 160,
+      field: 'dateOppened',
+      headerName: 'Date Oppened Voting',
+      type: 'date',
       hideable:false,
-      valueGetter: (params: GridValueGetterParams) =>
-        `${params.row.firstName || ''} ${params.row.lastName || ''}`,
+      editable: false,
+      width: 200,
+    },
+    {
+      field: 'dateClosed',
+      headerName: 'Date Closed Voting',
+      type: 'date',
+      hideable:false,
+      editable: false,
+      width: 200,
+    },
+    {
+      field: 'winner',
+      headerName: 'Winner',
+      width: 350,
+      hideable:false,
+      editable: false,
     },
   ];
   
@@ -62,18 +68,18 @@ const columns: GridColDef[] = [
 class VotingDataTable extends Component<VotingDataTableProps, VotingDataTableState> {
     constructor(props: VotingDataTableProps) {
         super(props);
-        // this.state = { :  };
     }
 
     render() { 
         return (
-            <Box className="notSelected" sx={{ height: 371, width: '100%' }}>
+            <Box className="notSelected" sx={{ height: '39.5rem', width: '100%' }}>
                 <DataGrid
                     rows={rows}
                     columns={columns}
-                    pageSize={5}
-                    rowsPerPageOptions={[5]}
+                    pageSize={10}
+                    rowsPerPageOptions={[10]}
                     disableSelectionOnClick
+                    disableColumnSelector
                 />
             </Box>
         );

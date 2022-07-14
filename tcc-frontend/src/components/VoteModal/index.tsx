@@ -1,4 +1,4 @@
-import { Box, Button, FormControlLabel, Grid, Modal, styled, Switch, TextField } from "@mui/material";
+import { Box, Button, Grid, Modal, styled, TextField } from "@mui/material";
 import { Component } from "react";
 import { ParticipantsCardModel } from "../../model/ParticipantsCardModel";
 

@@ -9,6 +9,7 @@ interface UserFormState {
     showPassword: boolean;
     profileImg: string | ArrayBuffer | null;
     sendImage?: File;
+    base64: string | ArrayBuffer | null;
 }
 
 const CssTextField = styled(TextField)({
@@ -38,7 +39,7 @@ const CssFormControl= styled(FormControl)({
 class UserForm extends Component<UserFormProps, UserFormState> {
     constructor(props: UserFormProps) {
         super(props);
-        this.state = { showPassword: false, profileImg: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png' };
+        this.state = { base64: null, showPassword: false, profileImg: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png' };
     }
 
     hundleShowPassword = () =>{
@@ -46,7 +47,10 @@ class UserForm extends Component<UserFormProps, UserFormState> {
     }
 
     teste =() =>{
-        console.log(this.state.sendImage)
+        console.log("nome",this.state.sendImage?.name)
+        if(!!this.state.base64){
+            console.log("base64",this.state.base64?.toString().split(",")[1])
+        }
     }
 
     imageHandler = (e : any) => {
@@ -55,9 +59,11 @@ class UserForm extends Component<UserFormProps, UserFormState> {
             if(reader.readyState === 2){
                 this.setState({profileImg: reader.result})
             }
+
+            this.setState({base64: reader.result});
         }
         this.setState({sendImage: e.target.files[0]});
-        reader.readAsDataURL(e.target.files[0])
+        reader.readAsDataURL(e.target.files[0]);
     };
 
     render() { 

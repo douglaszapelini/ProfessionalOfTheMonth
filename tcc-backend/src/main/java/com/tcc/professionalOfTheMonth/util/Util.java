@@ -1,6 +1,14 @@
 package com.tcc.professionalOfTheMonth.util;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Base64;
+
 public final class Util {
+	
+	public static final String PATH_PROJECT = System.getProperty("user.dir");
+	
+	public static final String PATH_IMAGES_PROJECT = System.getProperty("user.dir") + "\\images";
 	
 	public static String assembleHtmlEmail(String name, String email, String password) {
 		
@@ -28,6 +36,31 @@ public final class Util {
 		htmlEmail.append(" 	</div>                                                                                                                                    					  ");
 		
 		return htmlEmail.toString();
+	}
+	
+	public static String savePicture(String fileBase64, String fileName) {
+		
+		if(fileBase64 != null && !fileBase64.equals("") && fileName != null && !fileName.equals("")) {
+			
+			File imageFolder = new File(PATH_IMAGES_PROJECT);
+			
+			if(!imageFolder.exists()) {
+				imageFolder.mkdir();
+			}
+			
+			try (FileOutputStream imageOutputStream = new FileOutputStream(imageFolder +"\\" + fileName)){
+				
+				byte[] imageByteArray = Base64.getDecoder().decode(fileBase64);
+				imageOutputStream.write(imageByteArray);
+				
+				return imageFolder +"\\" + fileName;
+			}catch(Exception e) {
+				e.printStackTrace();
+				return null;
+			}		
+		}else {
+			return null;
+		}
 	}
 	
 }

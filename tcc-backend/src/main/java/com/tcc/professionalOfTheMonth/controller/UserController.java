@@ -64,7 +64,7 @@ public class UserController extends GenericController<User, Long, UserService>{
 			
 			try {
 				sendEmailService.sendHtmlEmail(user.getEmail(), 
-											   "Profissional Of The Month - New User ", 
+											   "Profissional Of The Month - New User", 
 											   Util.assembleHtmlEmail(user.getName(), user.getEmail(), passwordDescripted));
 			} catch (MessagingException e) {
 				e.printStackTrace();

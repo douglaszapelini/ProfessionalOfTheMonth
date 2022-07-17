@@ -8,6 +8,7 @@ CREATE TABLE mural(
 	id bigserial NOT NULL,
 	mura_name TEXT NOT NULL,
 	entp_id int NOT NULL,
+	icUse boolean NOT NULL DEFAULT FALSE,
 	PRIMARY KEY (id),
 	FOREIGN KEY (entp_id) REFERENCES enterprise(id)
 );
@@ -17,6 +18,8 @@ CREATE TABLE mural_item(
 	title TEXT NOT NULL,
 	description TEXT,
 	mura_id int NOT NULL,
+	seq int NOT NULL,
+	path_image TEXT,
 	PRIMARY KEY (id),
 	FOREIGN KEY (mura_id) REFERENCES mural(id)
 );

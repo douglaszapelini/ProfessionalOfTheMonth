@@ -19,11 +19,8 @@ import com.tcc.professionalOfTheMonth.service.ParticipantService;
 @RequestMapping(value="/participant")
 public class ParticipantController extends GenericController<Participant, Long, ParticipantService>{
 	
-	private ParticipantService participantService;
-	
 	public ParticipantController(ParticipantService participantService) {
 		super(participantService);
-		this.participantService = participantService;
 	}
 	
 	@ResponseStatus(HttpStatus.BAD_REQUEST)

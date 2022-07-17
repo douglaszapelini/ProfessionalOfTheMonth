@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -52,6 +53,19 @@ public class MuralController extends GenericController<Mural, Long, MuralService
     		return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
     	} else {
     		return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+    	}
+    }
+	
+	@PatchMapping(path="/active/{id}")
+    public ResponseEntity<Void> activeMural(@PathVariable Long id) {
+		
+		Optional<Mural> opt = muralService.findById(id);
+    			
+    	if(opt.isPresent()) {
+    		muralService.activeMural(id);
+    		return new ResponseEntity<Void>(HttpStatus.OK);
+    	} else {
+    		return new ResponseEntity<Void>(HttpStatus.NOT_FOUND);
     	}
     }
 	

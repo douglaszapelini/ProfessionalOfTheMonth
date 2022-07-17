@@ -2,6 +2,7 @@ package com.tcc.professionalOfTheMonth.domains;
 
 import java.io.Serializable;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -37,4 +38,15 @@ public class MuralItem implements Serializable{
 	@NotBlank(message = "Fill the atributte 'title'!")
 	private String title;
 	private String description;
+	
+	@JoinColumn(name="path_image")
+	private String pathImage;
+	
+	@Column(name="seq")
+	@NotNull(message="The attribute 'sequence' is required!")
+	private int sequence;
+	
+	public MuralItem(Long id) {
+		this.id = id;
+	}
 }

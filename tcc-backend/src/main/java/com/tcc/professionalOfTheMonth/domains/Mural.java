@@ -40,4 +40,11 @@ public class Mural implements Serializable{
 	@NotNull(message="The attribute 'Enterprise' is required!")
 	private Enterprise enterprise;
 	
+	@Column(name="icuse")
+	@NotNull(message="The attribute 'icUse' is required!")
+	private Boolean icUse;
+	
+	public Mural(Long id) {
+		this.id = id;
+	}
 }

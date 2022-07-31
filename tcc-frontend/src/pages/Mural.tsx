@@ -20,7 +20,7 @@ class Mural extends Component<MuralProps, MuralState> {
     render() { 
         return (
             <Box sx={{ width: '100%', typography: 'body1' }}>
-                <MenuComponent isAdmin={true}/>
+                <MenuComponent/>
                 <AppBar/>
                 <Toolbar/>
                 <Container sx={{marginTop: '2%', paddingBottom: '3rem'}}>

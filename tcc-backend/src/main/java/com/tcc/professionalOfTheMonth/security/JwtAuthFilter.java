@@ -18,8 +18,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import com.tcc.professionalOfTheMonth.data.DetailUserData;
 import com.tcc.professionalOfTheMonth.domains.User;
+import com.tcc.professionalOfTheMonth.dto.LoginDTO;
 
 public class JwtAuthFilter extends UsernamePasswordAuthenticationFilter{
 	
@@ -59,10 +61,9 @@ public class JwtAuthFilter extends UsernamePasswordAuthenticationFilter{
 				withSubject(userData.getUsername()).
 				withExpiresAt(new Date(System.currentTimeMillis() + TOKEN_EXPIRATION)).
 				sign(Algorithm.HMAC512(TOKEN_PASSWORD));
-		
-		response.getWriter().write(token);
-		response.getWriter().write("\n" + userData.getUsername());
-		response.getWriter().write("\n" + new Date(System.currentTimeMillis() + TOKEN_EXPIRATION).toString());
+		LoginDTO responseData = new LoginDTO(token, userData.getUsername(), userData.getUser().get().getIcAdmin());
+		Gson gson = new Gson();
+		response.getWriter().write(gson.toJson(responseData));
 		response.getWriter().flush();
 				
 	}

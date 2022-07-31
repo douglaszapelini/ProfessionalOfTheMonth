@@ -57,11 +57,10 @@ const options = {
 
 
 export const Dashboard = () => {
-
     return(
         <>
             <Box sx={{ width: '100%', typography: 'body1', marginBottom: '2%' }}>
-                <MenuComponent isAdmin={true}/>
+                <MenuComponent/>
                 <AppBar/>
                 <Toolbar/>
                 <Container fixed sx={{marginTop: '2%' }}>

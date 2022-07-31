@@ -67,7 +67,7 @@ export const Settings = () => {
     return(
         <>
             <Box sx={{ width: '100%', typography: 'body1', height: 'calc(100vh - 41px)' }}>
-                <MenuComponent isAdmin={true}/>
+                <MenuComponent/>
                 <AppBar/>
                 <Toolbar/>
                 <Container sx={{marginTop: '2%', paddingBottom: '3rem'}}>

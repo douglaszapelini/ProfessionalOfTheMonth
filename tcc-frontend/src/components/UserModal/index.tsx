@@ -68,13 +68,13 @@ export const UserModal = (props: UserModalProps) => {
             >
                 <Box sx={{ ...style, width: 400 }}>
                     <Grid container item>
-                        <Grid item xs={12}textAlign="center" sx={{margin: '0'}}>
+                        <Grid item xs={12}textAlign="center" sx={{margin: '0', backgroundColor: '#4D4B4D', borderRadius: '4px'}}>
                             {!isUpdate &&  <h1>Insert User</h1>}
                             {isUpdate &&  <h1>Edit User</h1>}
                         </Grid>
                         <Grid item sx={{paddingBottom:'0.5rem'}}>
                             {!isUpdate &&  <p>Fill in the field to insert a new User...</p>}
-                            {!isUpdate &&  <p>Fill in the field to update User...</p>}
+                            {isUpdate &&  <p>Fill in the field to update User...</p>}
                         </Grid>
                         <Grid item textAlign="center" xs={12} sx={{paddingBottom:'0.8rem'}}>
                             <CssTextField

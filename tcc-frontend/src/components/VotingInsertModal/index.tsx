@@ -37,14 +37,15 @@ class VotingInsertModal extends Component<VotingInsertModalProps, VotingInsertMo
     render() { 
         return (
             <>
-                <Button onClick={this.handleOpen} fullWidth color="success" sx={{borderRadius:'0'}} variant="contained">Insert New Voting</Button>
+                <Button onClick={this.handleOpen} fullWidth color="success" sx={{borderRadius:'0'}} variant="contained" className="notSelected">Insert New Voting</Button>
                 <Modal
                     open={this.state.showModalInsert}
                     onClose={this.handleClose}
+                    className="notSelected"
                 >
                     <Box sx={{ ...style, width: 400 }}>
                         <Grid container item>
-                            <Grid item xs={12}textAlign="center" sx={{margin: '0'}}>
+                            <Grid item xs={12}textAlign="center" sx={{margin: '0', backgroundColor: '#4D4B4D', borderRadius: '4px'}}>
                                 <h1>Insert voting</h1>
                             </Grid>
                             <Grid item sx={{paddingBottom:'0.5rem'}}>
@@ -54,7 +55,7 @@ class VotingInsertModal extends Component<VotingInsertModalProps, VotingInsertMo
                                 <DatePicker
                                     views={['year', 'month']}
                                     label="Year and Month"
-                                    minDate={new Date('2000-01-01')}
+                                    minDate={new Date('2022-01-01')}
                                     maxDate={new Date('2099-12-31')}
                                     value={this.state.yearMonthInsert}
                                     onChange={(newValue) => {

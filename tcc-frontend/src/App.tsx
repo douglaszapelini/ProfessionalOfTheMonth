@@ -6,12 +6,12 @@ import Profile from './pages/Profile';
 import {Login} from './pages/Login';
 import Voting from './pages/Voting';
 import Mural from './pages/Mural';
-import Signup from './pages/Signup';
+import {Signup} from './pages/Signup';
 import {User} from './pages/User';
 
 import AdapterDateFns from '@mui/lab/AdapterDateFns'
 import {LocalizationProvider} from '@mui/lab';
-import Home from './pages/Home';
+import {Home} from './pages/Home';
 import {ProtectedRoute} from './components/ProtectedRoute';
 import { AuthProvider } from './context';
 import { Settings } from './pages/Settings'
@@ -43,16 +43,16 @@ function App() {
             <CssBaseline/>
               <Routes>
                 
-                <Route path="/" element={<ProtectedRoute> <Home/> </ProtectedRoute>} />
-                <Route path="/profile" element={<ProtectedRoute><Profile/></ProtectedRoute>} />
-                <Route path="/login" element={<Login />} />
-                <Route path="/signup" element={<Signup />} />
-                <Route path="/voting" element={<ProtectedRoute> <Voting/> </ProtectedRoute>} />
-                <Route path="/user" element={<ProtectedRoute> <User/> </ProtectedRoute>} />
-                <Route path="/mural" element={<ProtectedRoute> <Mural/> </ProtectedRoute>} />
-                <Route path="/settings" element={<ProtectedRoute> <Settings/> </ProtectedRoute>} />
-                <Route path="/dashboard" element={<ProtectedRoute><Dashboard/></ProtectedRoute>} />
-                <Route path="/showMural" element={ <ShowMural/> } />
+                <Route path="/login"     element={<Login/>}/>
+                <Route path="/signup"    element={<Signup/>}/>
+                <Route path="/showMural" element={<ShowMural/>}/>
+                <Route path="/"          element={<ProtectedRoute verifyAdmin={false}><Home/></ProtectedRoute>}/>
+                <Route path="/profile"   element={<ProtectedRoute verifyAdmin={true}><Profile/></ProtectedRoute>}/>
+                <Route path="/voting"    element={<ProtectedRoute verifyAdmin={true}><Voting/></ProtectedRoute>}/>
+                <Route path="/user"      element={<ProtectedRoute verifyAdmin={true}><User/></ProtectedRoute>}/>
+                <Route path="/mural"     element={<ProtectedRoute verifyAdmin={true}><Mural/></ProtectedRoute>}/>
+                <Route path="/settings"  element={<ProtectedRoute verifyAdmin={true}><Settings/></ProtectedRoute>}/>
+                <Route path="/dashboard" element={<ProtectedRoute verifyAdmin={true}><Dashboard/></ProtectedRoute>}/>
 
                 <Route path="*" element={<Login/>} />
               </Routes>

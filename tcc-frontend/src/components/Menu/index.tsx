@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import LogoutIcon from '@mui/icons-material/Logout';
 import FaceIcon from '@mui/icons-material/Face';
 import SettingsIcon from '@mui/icons-material/Settings';
@@ -11,12 +11,23 @@ import EmojiEventsTwoToneIcon from '@mui/icons-material/EmojiEventsTwoTone';
 import { AppBar, Avatar, Grid, Menu, Toolbar, Typography, MenuItem, Button } from "@mui/material";
 import { Link } from "react-router-dom";
 import { useAuth } from "../../context/useAuth";
+import { getUserLocalStorage } from "../../context/util";
 
-interface MenuComponentProps {
-    isAdmin: boolean;
-}
  
-export const MenuComponent = (props: MenuComponentProps) => {
+export const MenuComponent = () => {
+
+    const [admin, setAdmin] = useState(false);
+
+    const auth = useAuth();
+    const userLocalStorage = getUserLocalStorage();
+
+    useEffect(() => {
+        console.log(auth);
+        console.log(userLocalStorage);
+        if((!!auth && auth.isAdmin) || (!!userLocalStorage && userLocalStorage.isAdmin)) {
+            setAdmin(true);
+        }
+    }, []);
 
     const [anchorElAvatar, setAnchorElAvatar] = useState<null | HTMLElement>(null);
 
@@ -27,10 +38,6 @@ export const MenuComponent = (props: MenuComponentProps) => {
     const handleMenuAvatar = (event: React.MouseEvent<HTMLElement>) => {
         setAnchorElAvatar(event.currentTarget);
     };
-
-    const auth = useAuth();
-
-    const isAdmin = props.isAdmin;
 
     return (<AppBar>
             <Toolbar >
@@ -59,7 +66,7 @@ export const MenuComponent = (props: MenuComponentProps) => {
                         </Typography>
                     </MenuItem>
 
-                    {isAdmin && 
+                    {admin && 
                         <MenuItem>
                             <DashboardIcon sx={{paddingRight: '0.2rem'}}/>
                             <Typography>
@@ -68,7 +75,7 @@ export const MenuComponent = (props: MenuComponentProps) => {
                         </MenuItem>
                     }
 
-                    {isAdmin && 
+                    {admin && 
                         <MenuItem>
                             <BadgeIcon sx={{paddingRight: '0.2rem'}}/>
                             <Typography>
@@ -77,7 +84,7 @@ export const MenuComponent = (props: MenuComponentProps) => {
                         </MenuItem>
                     }
 
-                    {isAdmin && 
+                    {admin && 
                         <MenuItem>
                             <HowToVoteIcon sx={{paddingRight: '0.2rem'}}/>
                             <Typography>
@@ -85,7 +92,7 @@ export const MenuComponent = (props: MenuComponentProps) => {
                             </Typography>
                         </MenuItem>
                     }
-                    {isAdmin && 
+                    {admin && 
                         <MenuItem>
                             <WallpaperIcon sx={{paddingRight: '0.2rem'}}/>
                             <Typography>
@@ -93,7 +100,7 @@ export const MenuComponent = (props: MenuComponentProps) => {
                             </Typography>
                         </MenuItem>
                     }
-                    {isAdmin && 
+                    {admin && 
                         <MenuItem>
                             <SettingsIcon/>
                             <Typography>

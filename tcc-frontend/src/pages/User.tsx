@@ -7,7 +7,7 @@ export const User = () =>{
     return (
         <>
             <Box sx={{typography: 'body1', height: 'calc(100vh - 41px)' }}>
-                <MenuComponent isAdmin={true}/>
+                <MenuComponent/>
                 <AppBar/>
                 <Toolbar/>
                 <Grid

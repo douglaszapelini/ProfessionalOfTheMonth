@@ -50,8 +50,9 @@ class VoteModal extends Component<VoteModalProps, VoteModalState> {
 
         return (
             <>
-                <Button onClick={this.handleOpen} color="success" sx={{borderRadius:'4px 4px 0 0'}} fullWidth variant="contained">VOTE</Button>
+                <Button onClick={this.handleOpen} color="success" sx={{borderRadius:'4px 4px 0 0'}} fullWidth variant="contained" className="notSelected">VOTE</Button>
                 <Modal
+                    className="notSelected"
                     open={this.state.showModalInsert}
                     onClose={this.handleClose}
                 >

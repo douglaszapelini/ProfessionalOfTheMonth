@@ -1,2 +1,3 @@
 
 tcc-backend/src/main/resources/application.properties
+tcc-frontend/yarn.lock

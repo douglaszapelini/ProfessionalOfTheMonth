@@ -9,6 +9,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import com.tcc.professionalOfTheMonth.domains.User;
 
+import lombok.Getter;
+
+@Getter
 public class DetailUserData implements UserDetails{
 	
 	private static final long serialVersionUID = 1L;

@@ -2,8 +2,8 @@ import axios from 'axios';
 import { getUserLocalStorage } from '../../context/util';
 
 export const api = axios.create({
-    // baseURL: 'localhost:8080/'
-    baseURL: 'https://reqres.in/'
+    baseURL: 'http://localhost:8080/'
+    //baseURL: 'https://reqres.in/'
 })
 
 api.interceptors.request.use(

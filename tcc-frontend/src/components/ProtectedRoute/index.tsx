@@ -6,15 +6,15 @@ import { getUserLocalStorage } from '../../context/util';
 interface ProtectedRouteProps {
   redirectPath?: string;
   children?: any;
+  verifyAdmin:boolean;
 }
-
 
 export const ProtectedRoute = (props: ProtectedRouteProps) => {
   
   const auth = useAuth();
   const userLocalStorage = getUserLocalStorage();
 
-  const { redirectPath, children } = props;
+  const { redirectPath, children, verifyAdmin } = props;
 
   if(auth.loading){
     return(
@@ -34,6 +34,14 @@ export const ProtectedRoute = (props: ProtectedRouteProps) => {
     return(
       <Navigate to={!!redirectPath ? redirectPath : "/login"} replace/>
     ) 
+  }
+
+  if(verifyAdmin){
+    if(!auth.isAdmin || !userLocalStorage.isAdmin) {
+      return(
+        <Navigate to={!!redirectPath ? redirectPath : "/"} replace/>
+      )
+    }
   }
 
   return (
